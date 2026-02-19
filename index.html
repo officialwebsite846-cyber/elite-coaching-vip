@@ -1,163 +1,184 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>UP Board Physics Hub</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UP Board Class 12 Physics VIP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
+:root { --gold:#d4af37; }
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
 body{
-font-family:Arial;
-margin:0;
-background:#f2f2f2;
+font-family:'Montserrat',sans-serif;
+background:radial-gradient(circle at center,#1f1f1f,#000);
+color:white;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+transition:0.4s;
+}
+
+/* LIGHT MODE */
+.light-mode{
+background:#f4f4f4;
+color:#111;
+}
+
+.light-mode .login-box,
+.light-mode .card{
+background:white;
+color:#111;
+}
+
+.light-mode .card a{
+color:white;
+}
+
+.login-box{
+width:90%;
+max-width:450px;
+background:#111;
+padding:40px;
+border-radius:20px;
+border:1px solid var(--gold);
+text-align:center;
+box-shadow:0 0 40px rgba(212,175,55,0.3);
+}
+
+h1{
+font-family:'Playfair Display',serif;
+color:var(--gold);
+margin-bottom:25px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+background:#1a1a1a;
+border:1px solid #333;
+border-bottom:2px solid var(--gold);
+color:white;
+}
+
+button{
+width:100%;
+padding:15px;
+background:linear-gradient(45deg,#d4af37,#aa8c2c);
+border:none;
+font-weight:bold;
+cursor:pointer;
 transition:0.3s;
 }
-header{
-background:#111;
-color:white;
-padding:15px;
-text-align:center;
+
+button:hover{
+transform:scale(1.05);
 }
-button{
+
+.toggle-btn{
+position:absolute;
+top:20px;
+right:20px;
+width:auto;
 padding:8px 15px;
-margin:5px;
-cursor:pointer;
-border:none;
-background:#111;
-color:white;
 }
-.container{
-padding:20px;
-}
-.chapter{
-background:white;
-padding:15px;
-margin:10px 0;
-border-radius:10px;
-}
-.dark{
-background:#111;
-color:white;
-}
-.dark .chapter{
-background:#222;
-}
-.hidden{
+
+.dashboard{
 display:none;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+min-height:100vh;
+background:radial-gradient(circle at center,#1a1a1a,#000);
+padding:40px 0;
+text-align:center;
+transition:0.4s;
 }
-input{
-padding:8px;
-margin:5px;
+
+.light-mode .dashboard{
+background:#eaeaea;
 }
-#timer{
+
+.card{
+background:#111;
+margin:15px auto;
+padding:20px;
+width:90%;
+max-width:500px;
+border:1px solid var(--gold);
+border-radius:12px;
+}
+
+.card h2{
+color:var(--gold);
+margin-bottom:10px;
+font-size:18px;
+}
+
+.card a{
+display:inline-block;
+padding:8px 20px;
+background:var(--gold);
+color:black;
+text-decoration:none;
 font-weight:bold;
-color:red;
+border-radius:6px;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-<h2>UP Board Class 12 Physics Hub</h2>
-<button onclick="toggleDark()">🌙 Dark Mode</button>
-</header>
-
-<div class="container">
+<button class="toggle-btn" onclick="toggleMode()">🌙 / ☀ Mode</button>
 
 <!-- LOGIN -->
-<div id="loginBox">
-<h3>Login</h3>
-<input type="text" id="username" placeholder="Enter Name">
-<input type="password" id="password" placeholder="Password">
-<button onclick="login()">Login</button>
+<div class="login-box" id="loginBox">
+<h1>VIP Physics Access</h1>
+
+<form onsubmit="openDashboard(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="tel" placeholder="Phone Number" required>
+<button type="submit">Enter Dashboard</button>
+</form>
 </div>
 
-<!-- MAIN CONTENT -->
-<div id="mainContent" class="hidden">
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard">
+<h1>UP BOARD CLASS 12 PHYSICS<br>IMPORTANT NOTES</h1>
 
-<h3>📘 Chapters</h3>
+<div class="card"><h2>1. Electric Charges & Fields</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>2. Electrostatic Potential & Capacitance</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>3. Current Electricity</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>4. Moving Charges & Magnetism</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>5. Magnetism & Matter</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>6. Electromagnetic Induction</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>7. Alternating Current</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>8. Electromagnetic Waves</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>9. Ray Optics & Optical Instruments</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>10. Wave Optics</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>11. Dual Nature of Radiation & Matter</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>12. Atoms</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>13. Nuclei</h2><a href="#">Download Notes</a></div>
+<div class="card"><h2>14. Semiconductor Electronics</h2><a href="#">Download Notes</a></div>
 
-<div class="chapter">
-<h4>1. Electrostatics</h4>
-<p><b>Important Formula:</b> F = k(q1q2/r²)</p>
-<p><b>Important Question:</b> State Coulomb’s Law.</p>
-</div>
-
-<div class="chapter">
-<h4>2. Current Electricity</h4>
-<p><b>Formula:</b> V = IR</p>
-<p><b>Important Question:</b> State Ohm’s Law.</p>
-</div>
-
-<div class="chapter">
-<h4>3. Magnetism</h4>
-<p><b>Formula:</b> F = BIL</p>
-<p><b>Important Question:</b> Define Magnetic Field.</p>
-</div>
-
-<div class="chapter">
-<h4>4. Ray Optics</h4>
-<p><b>Formula:</b> 1/f = 1/v + 1/u</p>
-<p><b>Important Question:</b> Define Refraction.</p>
-</div>
-
-<hr>
-
-<h3>📝 Quick Test</h3>
-<p id="timer">Time: 60</p>
-
-<div id="quizBox">
-<p>1. Unit of Electric Current?</p>
-<input type="radio" name="q1" value="Ampere"> Ampere<br>
-<input type="radio" name="q1" value="Volt"> Volt<br>
-
-<p>2. Ohm's Law Formula?</p>
-<input type="radio" name="q2" value="V=IR"> V=IR<br>
-<input type="radio" name="q2" value="F=ma"> F=ma<br>
-
-<button onclick="submitTest()">Submit</button>
-</div>
-
-<p id="result"></p>
-
-</div>
 </div>
 
 <script>
-function login(){
-let user=document.getElementById("username").value;
-let pass=document.getElementById("password").value;
-
-if(user!="" && pass=="1234"){
-document.getElementById("loginBox").classList.add("hidden");
-document.getElementById("mainContent").classList.remove("hidden");
-}else{
-alert("Password is 1234");
-}
+function openDashboard(e){
+e.preventDefault();
+document.getElementById("loginBox").style.display="none";
+document.getElementById("dashboard").style.display="block";
+document.body.style.alignItems="flex-start";
 }
 
-function toggleDark(){
-document.body.classList.toggle("dark");
-}
-
-let time=60;
-let timer=setInterval(function(){
-time--;
-document.getElementById("timer").innerText="Time: "+time;
-if(time<=0){
-clearInterval(timer);
-submitTest();
-}
-},1000);
-
-function submitTest(){
-let score=0;
-let q1=document.querySelector('input[name="q1"]:checked');
-let q2=document.querySelector('input[name="q2"]:checked');
-
-if(q1 && q1.value=="Ampere") score++;
-if(q2 && q2.value=="V=IR") score++;
-
-document.getElementById("result").innerHTML="Your Score: "+score+"/2";
+function toggleMode(){
+document.body.classList.toggle("light-mode");
 }
 </script>
 
