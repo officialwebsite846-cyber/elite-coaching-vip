@@ -184,7 +184,7 @@
             font-weight: 600;
         }
 
-        input, select {
+        input {
             width: 100%;
             padding: 12px 15px;
             background: rgba(255, 255, 255, 0.05);
@@ -197,21 +197,7 @@
             transition: 0.3s;
         }
 
-        select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23d4af37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
-            background-repeat: no-repeat;
-            background-position: right 15px center;
-            background-size: 12px;
-        }
-
-        select option {
-            background-color: #1a1a1a;
-            color: #ffffff;
-        }
-
-        input:focus, select:focus {
+        input:focus {
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--white);
         }
@@ -238,14 +224,62 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* Success Message */
-        .success-msg {
+        /* Success Page (Page 2) */
+        .success-page {
             display: none;
-            color: var(--gold);
-            font-size: 20px;
-            font-family: 'Playfair Display', serif;
+            animation: fadeIn 0.5s ease-out;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .user-details {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .user-info:last-child {
+            border-bottom: none;
+        }
+
+        .user-label {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .user-value {
+            font-size: 16px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .welcome-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+            animation: celebrate 1s infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Loader */
         .loader {
             display: none;
             width: 24px;
@@ -283,8 +317,9 @@
     <div class="bg-glow"></div>
 
     <div class="vip-container" id="mainCard">
-        <!-- Header Section -->
-        <div id="formContent">
+        
+        <!-- PAGE 1: Form -->
+        <div id="page1">
             <h1>Elite Mentors</h1>
             <p class="brand-tag">Premium Physics Coaching</p>
             <p class="subtitle">Enter your details for VIP Access to our Physics coaching with animated chapters.</p>
@@ -340,31 +375,78 @@
                     <input type="tel" id="phone" placeholder="+91 98765 43210" required pattern="[0-9]{10,}">
                 </div>
 
-                <div class="input-group">
-                    <label>SELECT SUBJECT</label>
-                    <select id="class" required>
-                        <option value="" disabled selected>Select Your Class</option>
-                        <option value="Class 12th - English">Class 12th - English</option>
-                        <option value="Class 12th - Hindi">Class 12th - Hindi</option>
-                        <!-- 3rd option (Physics) removed -->
-                        <option value="Class 12th - Chemistry">Class 12th - Chemistry</option>
-                        <option value="Class 12th - Mathematics">Class 12th - Mathematics</option>
-                        <option value="Class 12th - Biology">Class 12th - Biology</option>
-                        <option value="Class 12th - Commerce">Class 12th - Commerce</option>
-                        <option value="Class 12th - History">Class 12th - History</option>
-                        <option value="Class 12th - Geography">Class 12th - Geography</option>
-                        <option value="Class 12th - Civics">Class 12th - Civics</option>
-                        <option value="Class 12th - Economics">Class 12th - Economics</option>
-                        <option value="Class 12th - Sanskrit">Class 12th - Sanskrit</option>
-                        <option value="Class 11th">Class 11th</option>
-                        <option value="Class 10th">Class 10th</option>
-                        <option value="Class 9th">Class 9th</option>
-                        <option value="Physics Only">Physics Only</option>
-                    </select>
-                </div>
+                <!-- Select class dropdown removed as per requirement -->
 
                 <button type="submit" class="btn-vip" id="submitBtn">Get Access Now</button>
                 <div class="loader" id="loader"></div>
             </form>
 
             <!-- Made by Sumit Singh -->
+            <div class="footer-credit">
+                Made by <span>Sumit Singh</span>
+            </div>
+        </div>
+
+        <!-- PAGE 2: Success with User Details -->
+        <div id="page2" class="success-page">
+            <div class="welcome-icon">🎉</div>
+            <h1>Welcome Aboard!</h1>
+            <p class="subtitle">Your request has been received. Our VIP team will contact you shortly.</p>
+
+            <div class="user-details">
+                <div class="user-info">
+                    <span class="user-label">FULL NAME</span>
+                    <span class="user-value" id="displayName"></span>
+                </div>
+                <div class="user-info">
+                    <span class="user-label">PHONE NUMBER</span>
+                    <span class="user-value" id="displayPhone"></span>
+                </div>
+                <div class="user-info">
+                    <span class="user-label">STATUS</span>
+                    <span class="user-value" style="color: #4ade80;">✓ Verified</span>
+                </div>
+            </div>
+
+            <div class="footer-credit">
+                Made by <span>Sumit Singh</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+
+            // UI Changes
+            const btn = document.getElementById('submitBtn');
+            const loader = document.getElementById('loader');
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+
+            btn.style.display = 'none';
+            loader.style.display = 'block';
+
+            // Simulate Server Request & Show Page 2
+            setTimeout(() => {
+                // Set user data on page 2
+                document.getElementById('displayName').textContent = name;
+                document.getElementById('displayPhone').textContent = phone;
+                
+                // Hide page 1, Show page 2
+                loader.style.display = 'none';
+                page1.style.display = 'none';
+                page2.style.display = 'block';
+                
+                console.log("User Data: ", {name, phone});
+            }, 1500);
+        }
+    </script>
+
+</body>
+</html>
