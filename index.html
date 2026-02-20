@@ -343,6 +343,195 @@ font-size:14px;
     font-weight: 600;
 }
 
+/* ==================== AI CHATBOT STYLES ==================== */
+
+/* Chat Button */
+.chat-button {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    z-index: 1000;
+    animation: pulse-chat 2s infinite;
+}
+
+@keyframes pulse-chat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.chat-button img {
+    width: 35px;
+    height: 35px;
+}
+
+/* Chat Window */
+.chat-window {
+    position: fixed;
+    bottom: 160px;
+    right: 20px;
+    width: 350px;
+    height: 450px;
+    background: #1a1a1a;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.chat-header {
+    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.chat-header-info h4 {
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.chat-header-info p {
+    color: #333;
+    font-size: 12px;
+}
+
+.chat-status {
+    width: 8px;
+    height: 8px;
+    background: #00ff00;
+    border-radius: 50%;
+    margin-left: auto;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    max-width: 85%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.bot {
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 3px;
+}
+
+.message.user {
+    background: var(--gold);
+    color: #000;
+    align-self: flex-end;
+    border-bottom-right-radius: 3px;
+}
+
+.message-time {
+    font-size: 10px;
+    opacity: 0.6;
+    margin-top: 5px;
+}
+
+.chat-input {
+    padding: 15px;
+    border-top: 1px solid #333;
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 25px;
+    color: #fff;
+    outline: none;
+}
+
+.chat-input input:focus {
+    border-color: var(--gold);
+}
+
+.chat-input button {
+    width: 45px;
+    height: 45px;
+    background: var(--gold);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.chat-input button:hover {
+    transform: scale(1.1);
+}
+
+/* Quick Reply Buttons */
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.quick-reply {
+    background: rgba(212, 175, 55, 0.2);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.quick-reply:hover {
+    background: var(--gold);
+    color: #000;
+}
+
 /* WhatsApp Button */
 .whatsapp{
 position:fixed;
@@ -373,6 +562,12 @@ z-index: 1000;
     .form-card {
         padding: 25px;
         margin: 0 15px;
+    }
+    
+    .chat-window {
+        width: 90%;
+        right: 5%;
+        bottom: 150px;
     }
 }
 </style>
@@ -438,99 +633,4 @@ z-index: 1000;
                 <input type="tel" id="phone" placeholder="Enter your phone number" required pattern="[0-9]{10,}">
             </div>
             
-            <button type="submit" class="btn-submit" id="submitBtn">Get Free Counseling</button>
-            <div class="loader" id="loader"></div>
-        </form>
-    </div>
-    
-    <!-- Success Content -->
-    <div id="successContent" class="success-page">
-        <div class="success-icon">🎉</div>
-        <h3>Welcome Aboard!</h3>
-        <p style="margin-bottom: 20px;">Thank you for connecting. Our team will contact you shortly.</p>
-        
-        <div class="user-details">
-            <div class="user-row">
-                <span class="user-label">NAME</span>
-                <span class="user-value" id="displayName"></span>
-            </div>
-            <div class="user-row">
-                <span class="user-label">PHONE</span>
-                <span class="user-value" id="displayPhone"></span>
-            </div>
-            <div class="user-row">
-                <span class="user-label">STATUS</span>
-                <span class="user-value" style="color: #4ade80;">✓ Received</span>
-            </div>
-        </div>
-        
-        <a href="tel:9621320717" class="btn">📞 Call Now</a>
-    </div>
-    
-    <div class="footer-credit" style="margin-top: 25px;">
-        Made by <span>Sumit Singh</span>
-    </div>
-</div>
-</section>
-
-<section class="contact">
-<h2>Contact & Admission</h2>
-<div class="card">
-<p>📍 Offline Coaching in Hardoi</p>
-<p>📞 Admission Helpline: 9621320717</p>
-<a href="tel:9621320717" class="btn">Call For Admission</a>
-</div>
-</section>
-
-<footer>
-© 2026 Best UP Board Physics Coaching in Hardoi | All Rights Reserved
-<div class="footer-credit">
-Made by <span>Sumit Singh</span>
-</div>
-</footer>
-
-<!-- WhatsApp Button -->
-<a href="https://wa.me/919621320717" class="whatsapp" target="_blank">💬</a>
-
-<script>
-function handleSubmit(e) {
-    e.preventDefault();
-    
-    // Get values
-    const name = document.getElementById('name').value;
-    const phone = document.getElementById('phone').value;
-    
-    // UI Changes
-    const btn = document.getElementById('submitBtn');
-    const loader = document.getElementById('loader');
-    const formContent = document.getElementById('formContent');
-    const successContent = document.getElementById('successContent');
-    
-    btn.style.display = 'none';
-    loader.style.display = 'block';
-    
-    // Send to WhatsApp
-    const whatsappMessage = `*New Lead Received!*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A%0AFrom: Elite Physics Coaching Website`;
-    const whatsappUrl = `https://wa.me/919621320717?text=${whatsappMessage}`;
-    
-    // Simulate processing and show success
-    setTimeout(() => {
-        // Set user data
-        document.getElementById('displayName').textContent = name;
-        document.getElementById('displayPhone').textContent = phone;
-        
-        // Show success
-        loader.style.display = 'none';
-        formContent.style.display = 'none';
-        successContent.style.display = 'block';
-        
-        // Open WhatsApp for admin notification
-        window.open(whatsappUrl, '_blank');
-        
-        console.log("Lead Data:", {name, phone});
-    }, 1500);
-}
-</script>
-
-</body>
-</html>
+            <button type="submit" class="btn-submit" id="submitBtn">Get
