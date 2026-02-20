@@ -13,7 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
 --gold:#d4af37;
 --dark:#0a0a0a;
@@ -165,6 +164,7 @@ align-items:center;
 font-size:28px;
 cursor:pointer;
 box-shadow:0 0 25px var(--gold);
+z-index:1000;
 }
 
 .chat-box{
@@ -179,6 +179,7 @@ border-radius:20px;
 display:none;
 flex-direction:column;
 overflow:hidden;
+z-index:1000;
 }
 
 .chat-messages{
@@ -197,12 +198,38 @@ border-top:1px solid #333;
 flex:1;
 border:none;
 padding:10px;
+background:#111;
+color:#fff;
 }
 
 .chat-input button{
 width:60px;
 border:none;
 background:var(--gold);
+cursor:pointer;
+}
+
+/* WhatsApp Direct Icon */
+.whatsapp-btn{
+position:fixed;
+bottom:25px;
+left:25px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 20px rgba(37,211,102,0.6);
+z-index:1000;
+transition:0.3s;
+}
+.whatsapp-btn:hover{
+transform:scale(1.1);
 }
 
 footer{
@@ -257,8 +284,10 @@ header h1{font-size:28px;}
 </div>
 </section>
 
+<!-- Chat Button -->
 <div class="chat-btn" onclick="toggleChat()">💬</div>
 
+<!-- Chat Box -->
 <div class="chat-box" id="chatBox">
 <div class="chat-messages" id="chatMessages">
 <p><b>Assistant:</b> Hello 👋 How can I help you?</p>
@@ -269,54 +298,81 @@ header h1{font-size:28px;}
 </div>
 </div>
 
+<!-- Direct WhatsApp Button -->
+<a href="https://wa.me/919621320717?text=Hello Sir, I want admission in Physics Coaching"
+   target="_blank"
+   class="whatsapp-btn">
+   🟢
+</a>
+
 <footer>
 © 2026 Physics Coaching Hardoi | All Rights Reserved
 </footer>
 
 <script>
 
-/* GOOGLE SHEET URL */
-const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
+const scriptURL="PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
 
 /* FORM */
-document.getElementById("leadForm").addEventListener("submit", function(e){
+document.getElementById("leadForm").addEventListener("submit",function(e){
 e.preventDefault();
+const name=document.getElementById("name").value;
+const phone=document.getElementById("phone").value;
 
-const name = document.getElementById("name").value;
-const phone = document.getElementById("phone").value;
-
-fetch(scriptURL, {
-method: "POST",
-body: JSON.stringify({ name: name, phone: phone })
+fetch(scriptURL,{
+method:"POST",
+body:JSON.stringify({name:name,phone:phone})
 })
-.then(res => res.json())
-.then(data => {
+.then(res=>res.json())
+.then(data=>{
 document.getElementById("successMsg").style.display="block";
 setTimeout(()=>{
 window.open("https://wa.me/919621320717","_blank");
 },1500);
-})
-.catch(err => alert("Error submitting form"));
+});
 });
 
-/* CHAT */
+/* CHAT SYSTEM */
 function toggleChat(){
 let box=document.getElementById("chatBox");
-box.style.display= box.style.display==="flex" ? "none":"flex";
+box.style.display=box.style.display==="flex"?"none":"flex";
 }
 
 function sendMessage(){
 let input=document.getElementById("chatInput");
-let msg=input.value.trim();
+let msg=input.value.trim().toLowerCase();
 if(msg==="") return;
 
 let chat=document.getElementById("chatMessages");
-
 chat.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
-chat.innerHTML+=`<p><b>Assistant:</b> Please call 9621320717 for admission details.</p>`;
+
+let reply="";
+
+if(msg.includes("fee")||msg.includes("fees")){
+reply="Our monthly fee is affordable. Please call 9621320717 for exact details.";
+}
+else if(msg.includes("time")||msg.includes("batch")){
+reply="Morning and evening batches available for Class 12.";
+}
+else if(msg.includes("demo")){
+reply="Yes demo class available. Please message on WhatsApp to book.";
+}
+else if(msg.includes("address")||msg.includes("location")){
+reply="We are located in Hardoi. Call 9621320717 for full address.";
+}
+else if(msg.includes("admission")){
+reply="Admission open for UP Board Class 12 Physics. Limited seats available.";
+}
+else{
+reply="Thank you for contacting Physics Coaching Hardoi. Please call or WhatsApp 9621320717.";
+}
+
+setTimeout(()=>{
+chat.innerHTML+=`<p><b>Assistant:</b> ${reply}</p>`;
+chat.scrollTop=chat.scrollHeight;
+},500);
 
 input.value="";
-chat.scrollTop=chat.scrollHeight;
 }
 
 </script>
