@@ -1,196 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UP Board Class 12 Physics VIP</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Class 12 Physics - UP Board</title>
 
 <style>
-:root { --gold:#d4af37; }
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
 body{
-font-family:'Montserrat',sans-serif;
-background:radial-gradient(circle at center,#1f1f1f,#000);
-color:white;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-transition:0.4s;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0f172a;
+    color:white;
 }
 
-/* LIGHT MODE */
-.light-mode{
-background:#f4f4f4;
-color:#111;
+header{
+    background:#020617;
+    padding:20px;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    box-shadow:0 2px 10px black;
 }
 
-.light-mode .login-box,
-.light-mode .card{
-background:white;
-color:#111;
-}
-
-.login-box{
-width:90%;
-max-width:450px;
-background:#111;
-padding:40px;
-border-radius:20px;
-border:1px solid var(--gold);
-text-align:center;
-box-shadow:0 0 40px rgba(212,175,55,0.3);
-}
-
-.profile-img{
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:20px;
-border:3px solid var(--gold);
-}
-
-h1{
-font-family:'Playfair Display',serif;
-color:var(--gold);
-margin-bottom:25px;
-}
-
-input{
-width:100%;
-padding:12px;
-margin-bottom:15px;
-background:#1a1a1a;
-border:1px solid #333;
-border-bottom:2px solid var(--gold);
-color:white;
-}
-
-button{
-width:100%;
-padding:15px;
-background:linear-gradient(45deg,#d4af37,#aa8c2c);
-border:none;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-}
-
-.toggle-btn{
-position:absolute;
-top:20px;
-right:20px;
-width:auto;
-padding:8px 15px;
-}
-
-.dashboard{
-display:none;
-position:absolute;
-top:0;
-left:0;
-width:100%;
-min-height:100vh;
-background:radial-gradient(circle at center,#1a1a1a,#000);
-padding:40px 0;
-text-align:center;
-}
-
-.light-mode .dashboard{
-background:#eaeaea;
+.container{
+    padding:20px;
 }
 
 .card{
-background:#111;
-margin:15px auto;
-padding:20px;
-width:90%;
-max-width:500px;
-border:1px solid var(--gold);
-border-radius:12px;
+    background:#1e293b;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+    transition:0.3s;
 }
 
-.card h2{
-color:var(--gold);
-margin-bottom:10px;
-font-size:18px;
+.card:hover{
+    transform:scale(1.02);
 }
 
-.card a{
-display:inline-block;
-padding:8px 20px;
-background:var(--gold);
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:6px;
+.card img{
+    width:100%;
+    border-radius:10px;
+    margin:10px 0;
+}
+
+h2{
+    margin-top:0;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#020617;
+    margin-top:30px;
 }
 </style>
 </head>
 
 <body>
 
-<button class="toggle-btn" onclick="toggleMode()">🌙 / ☀ Mode</button>
+<header>
+Class 12 Physics - UP Board
+</header>
 
-<!-- LOGIN -->
-<div class="login-box" id="loginBox">
+<div class="container">
 
-<img src="profile1.jpg" class="profile-img">
-
-<h1>VIP Physics Access</h1>
-
-<form onsubmit="openDashboard(event)">
-<input type="text" placeholder="Full Name" required>
-<input type="tel" placeholder="Phone Number" required>
-<button type="submit">Enter Dashboard</button>
-</form>
+<div class="card">
+<h2>1. Electric Charges & Fields</h2>
+<img src="physics1.jpg" alt="Chapter 1">
+<p>यहाँ Chapter 1 का पूरा work लिखें।</p>
 </div>
 
-<!-- DASHBOARD -->
-<div class="dashboard" id="dashboard">
+<div class="card">
+<h2>2. Current Electricity</h2>
+<img src="physics2.jpg" alt="Chapter 2">
+<p>यहाँ Chapter 2 का पूरा work लिखें।</p>
+</div>
 
-<img src="profile2.jpg" class="profile-img">
+<div class="card">
+<h2>3. Magnetic Effects of Current</h2>
+<img src="physics3.jpg" alt="Chapter 3">
+<p>यहाँ Chapter 3 का पूरा work लिखें।</p>
+</div>
 
-<h1>UP BOARD CLASS 12 PHYSICS<br>IMPORTANT NOTES</h1>
-
-<div class="card"><h2>1. Electric Charges & Fields</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>2. Electrostatic Potential & Capacitance</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>3. Current Electricity</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>4. Moving Charges & Magnetism</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>5. Magnetism & Matter</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>6. Electromagnetic Induction</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>7. Alternating Current</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>8. Electromagnetic Waves</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>9. Ray Optics & Optical Instruments</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>10. Wave Optics</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>11. Dual Nature of Radiation & Matter</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>12. Atoms</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>13. Nuclei</h2><a href="#">Download Notes</a></div>
-<div class="card"><h2>14. Semiconductor Electronics</h2><a href="#">Download Notes</a></div>
+<div class="card">
+<h2>4. Electromagnetic Induction</h2>
+<img src="physics4.jpg" alt="Chapter 4">
+<p>यहाँ Chapter 4 का पूरा work लिखें।</p>
+</div>
 
 </div>
 
-<script>
-function openDashboard(e){
-e.preventDefault();
-document.getElementById("loginBox").style.display="none";
-document.getElementById("dashboard").style.display="block";
-document.body.style.alignItems="flex-start";
-}
-
-function toggleMode(){
-document.body.classList.toggle("light-mode");
-}
-</script>
+<footer>
+Made by Mayank Gupta
+</footer>
 
 </body>
 </html>
