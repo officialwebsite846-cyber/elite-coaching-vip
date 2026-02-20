@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Best UP Board Class 12 Physics Coaching in Hardoi | Offline Physics Tuition</title>
+<title>Best UP Board Class 12 Physics Coaching in Hardoi | Offline Tuition</title>
 
-<meta name="description" content="Best Physics Coaching in Hardoi for UP Board Class 12. 90%+ results, expert guidance, weekly tests, small batch size. Call Now 9621320717.">
-<meta name="keywords" content="Physics Coaching Hardoi, UP Board Class 12 Physics, Best Physics Tuition Hardoi">
-<meta name="author" content="Physics Coaching Hardoi">
+<meta name="description" content="Best Physics Coaching in Hardoi for UP Board Class 12. 90%+ Results. Call 9621320717">
+<meta name="keywords" content="Physics Coaching Hardoi, UP Board Physics Tuition Hardoi">
 <meta name="robots" content="index, follow">
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -18,7 +17,6 @@
 :root{
 --gold:#d4af37;
 --dark:#0a0a0a;
---glass:rgba(255,255,255,0.05);
 }
 
 *{
@@ -34,7 +32,7 @@ color:#fff;
 overflow-x:hidden;
 }
 
-/* LUXURY GLOW BACKGROUND */
+/* Luxury Glow */
 body::before{
 content:"";
 position:fixed;
@@ -48,7 +46,7 @@ opacity:0.05;
 z-index:-1;
 }
 
-/* HEADER */
+/* Header */
 header{
 height:100vh;
 display:flex;
@@ -89,36 +87,36 @@ transform:scale(1.1);
 box-shadow:0 0 25px var(--gold);
 }
 
-/* GLASS CARD */
+/* Section */
 .section{
 padding:80px 20px;
 text-align:center;
 }
 
-.glass-card{
+.card{
 max-width:900px;
 margin:40px auto;
 padding:50px;
-background:var(--glass);
+background:rgba(255,255,255,0.05);
 border:1px solid rgba(212,175,55,0.4);
 border-radius:25px;
 backdrop-filter:blur(15px);
 box-shadow:0 0 40px rgba(212,175,55,0.2);
 }
 
-.glass-card h2{
+.card h2{
 font-family:'Cinzel',serif;
 color:var(--gold);
 margin-bottom:30px;
 }
 
-.glass-card ul{
+.card ul{
 list-style:none;
 line-height:2.2;
 font-size:18px;
 }
 
-/* FORM */
+/* Form */
 .form-box{
 max-width:500px;
 margin:auto;
@@ -152,7 +150,7 @@ color:var(--gold);
 font-weight:600;
 }
 
-/* CHAT BUTTON */
+/* Chat */
 .chat-btn{
 position:fixed;
 bottom:25px;
@@ -169,7 +167,6 @@ cursor:pointer;
 box-shadow:0 0 25px var(--gold);
 }
 
-/* CHAT BOX */
 .chat-box{
 position:fixed;
 bottom:110px;
@@ -231,12 +228,12 @@ header h1{font-size:28px;}
 </header>
 
 <section class="section">
-<div class="glass-card">
+<div class="card">
 <h2>Why Choose Us?</h2>
 <ul>
 <li>✔ Complete UP Board Syllabus</li>
-<li>✔ Important Derivations & Numericals</li>
 <li>✔ Weekly Test Series</li>
+<li>✔ Important Numericals & Derivations</li>
 <li>✔ Printed Study Material</li>
 <li>✔ Small Batch – Personal Attention</li>
 </ul>
@@ -244,7 +241,7 @@ header h1{font-size:28px;}
 </section>
 
 <section class="section">
-<div class="glass-card form-box">
+<div class="card form-box">
 <h2>Free Counseling</h2>
 
 <form id="leadForm">
@@ -278,15 +275,28 @@ header h1{font-size:28px;}
 
 <script>
 
-/* FORM SUBMIT */
-document.getElementById("leadForm").addEventListener("submit",function(e){
-e.preventDefault();
-document.getElementById("successMsg").style.display="block";
+/* GOOGLE SHEET URL */
+const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
 
+/* FORM */
+document.getElementById("leadForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+
+fetch(scriptURL, {
+method: "POST",
+body: JSON.stringify({ name: name, phone: phone })
+})
+.then(res => res.json())
+.then(data => {
+document.getElementById("successMsg").style.display="block";
 setTimeout(()=>{
 window.open("https://wa.me/919621320717","_blank");
 },1500);
-
+})
+.catch(err => alert("Error submitting form"));
 });
 
 /* CHAT */
@@ -303,7 +313,7 @@ if(msg==="") return;
 let chat=document.getElementById("chatMessages");
 
 chat.innerHTML+=`<p><b>You:</b> ${msg}</p>`;
-chat.innerHTML+=`<p><b>Assistant:</b> Please call 9621320717 for detailed guidance.</p>`;
+chat.innerHTML+=`<p><b>Assistant:</b> Please call 9621320717 for admission details.</p>`;
 
 input.value="";
 chat.scrollTop=chat.scrollHeight;
