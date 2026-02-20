@@ -26,14 +26,14 @@
             background-color: var(--black);
             background-image: radial-gradient(circle at center, #2a2a2a 0%, #000000 100%);
             color: var(--white);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Animated Background Particles (Optional Luxury Touch) */
+        /* Animated Background Particles */
         .bg-glow {
             position: absolute;
             width: 600px;
@@ -66,6 +66,7 @@
             position: relative;
             overflow: hidden;
             animation: slideUp 0.8s ease-out;
+            margin: 20px 0;
         }
 
         @keyframes slideUp {
@@ -91,9 +92,17 @@
             font-family: 'Playfair Display', serif;
             font-size: 28px;
             color: var(--gold);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .brand-tag {
+            font-size: 10px;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            opacity: 0.7;
         }
 
         p.subtitle {
@@ -118,7 +127,7 @@
             font-weight: 600;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 12px 15px;
             background: rgba(255, 255, 255, 0.05);
@@ -131,7 +140,21 @@
             transition: 0.3s;
         }
 
-        input:focus {
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23d4af37%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 12px;
+        }
+
+        select option {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        input:focus, select:focus {
             background: rgba(255, 255, 255, 0.1);
             border-color: var(--white);
         }
@@ -158,7 +181,7 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* Success Message (Hidden by default) */
+        /* Success Message */
         .success-msg {
             display: none;
             color: var(--gold);
@@ -182,6 +205,20 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* Made by Mayank Footer */
+        .footer-credit {
+            margin-top: 25px;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .footer-credit span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
     </style>
 </head>
 <body>
@@ -192,12 +229,13 @@
         <!-- Header Section -->
         <div id="formContent">
             <h1>Elite Mentors</h1>
+            <p class="brand-tag">Premium Coaching Institute</p>
             <p class="subtitle">Enter your details for VIP Access to our exclusive coaching dashboard.</p>
 
             <form id="leadForm" onsubmit="handleSubmit(event)">
                 <div class="input-group">
                     <label>FULL NAME</label>
-                    <input type="text" id="name" placeholder="Mr. Rahul Sharma" required>
+                    <input type="text" id="name" placeholder="Your Full Name" required>
                 </div>
 
                 <div class="input-group">
@@ -207,18 +245,44 @@
 
                 <div class="input-group">
                     <label>CLASS / COURSE</label>
-                    <input type="text" id="class" placeholder="e.g. JEE Advanced, Class 10" required>
+                    <select id="class" required>
+                        <option value="" disabled selected>Select Your Class</option>
+                        <option value="Class 12th - English">Class 12th - English</option>
+                        <option value="Class 12th - Hindi">Class 12th - Hindi</option>
+                        <option value="Class 12th - Physics">Class 12th - Physics</option>
+                        <option value="Class 12th - Chemistry">Class 12th - Chemistry</option>
+                        <option value="Class 12th - Mathematics">Class 12th - Mathematics</option>
+                        <option value="Class 12th - Biology">Class 12th - Biology</option>
+                        <option value="Class 12th - Commerce">Class 12th - Commerce</option>
+                        <option value="Class 12th - History">Class 12th - History</option>
+                        <option value="Class 12th - Geography">Class 12th - Geography</option>
+                        <option value="Class 12th - Civics">Class 12th - Civics</option>
+                        <option value="Class 12th - Economics">Class 12th - Economics</option>
+                        <option value="Class 12th - Sanskrit">Class 12th - Sanskrit</option>
+                        <option value="Class 11th">Class 11th</option>
+                        <option value="Class 10th">Class 10th</option>
+                        <option value="Class 9th">Class 9th</option>
+                        <option value="Other">Other</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn-vip" id="submitBtn">Get Access Now</button>
                 <div class="loader" id="loader"></div>
             </form>
+
+            <!-- Made by Mayank -->
+            <div class="footer-credit">
+                Made by <span>Mayank</span>
+            </div>
         </div>
 
         <!-- Success Message Section -->
         <div class="success-msg" id="successMsg">
             <h1>Welcome Aboard!</h1>
             <p class="subtitle">Your request has been received.<br>Our VIP team will contact you shortly.</p>
+            <div class="footer-credit">
+                Made by <span>Mayank</span>
+            </div>
         </div>
     </div>
 
