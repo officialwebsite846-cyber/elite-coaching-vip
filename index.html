@@ -30,17 +30,18 @@ justify-content:center;
 align-items:center;
 min-height:100vh;
 padding:20px;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* Golden Background Glow */
+/* Golden Glow Background */
 body::before{
 content:"";
 position:absolute;
-width:600px;
-height:600px;
+width:700px;
+height:700px;
 background:radial-gradient(circle,rgba(212,175,55,0.15),transparent 70%);
-animation:pulse 4s infinite;
+animation:pulse 5s infinite;
+z-index:-1;
 }
 
 @keyframes pulse{
@@ -50,9 +51,8 @@ animation:pulse 4s infinite;
 }
 
 .container{
-position:relative;
 width:100%;
-max-width:500px;
+max-width:550px;
 background:var(--card);
 border-radius:20px;
 padding:40px 30px;
@@ -78,14 +78,14 @@ margin-bottom:5px;
 text-align:center;
 color:#ccc;
 font-size:14px;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .chapter-title{
 color:var(--gold);
 font-size:13px;
 letter-spacing:2px;
-margin-bottom:15px;
+margin:25px 0 15px 0;
 text-align:center;
 }
 
@@ -107,8 +107,11 @@ transform:translateX(6px);
 box-shadow:0 0 15px rgba(212,175,55,0.4);
 }
 
-/* Individual Emoji Animations */
+.chapter span{
+font-size:22px;
+}
 
+/* Individual Emoji Animations */
 .ch1 span{animation:shake 1.5s infinite;}
 .ch2 span{animation:rotate 3s linear infinite;}
 .ch3 span{animation:glow 2s infinite;}
@@ -141,8 +144,40 @@ from{transform:rotate(0);}
 to{transform:rotate(360deg);}
 }
 
-.chapter span{
-font-size:22px;
+/* Photo Section */
+.photo-section{
+margin-top:30px;
+text-align:center;
+}
+
+.photo-section img{
+width:100%;
+max-width:450px;
+border-radius:20px;
+border:3px solid var(--gold);
+box-shadow:0 0 30px rgba(212,175,55,0.5);
+}
+
+/* Contact Button */
+.contact{
+margin-top:20px;
+text-align:center;
+}
+
+.contact a{
+display:inline-block;
+padding:12px 25px;
+background:linear-gradient(45deg,var(--gold),#aa8c2c);
+color:black;
+font-weight:bold;
+text-decoration:none;
+border-radius:30px;
+transition:0.3s;
+}
+
+.contact a:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px var(--gold);
 }
 
 </style>
@@ -181,6 +216,16 @@ font-size:22px;
 <div class="chapter ch5">
 5. Magnetism & Matter
 <span>🌍</span>
+</div>
+
+<!-- Photo -->
+<div class="photo-section">
+<img src="photo.png" alt="Elite Mentor">
+</div>
+
+<!-- Contact -->
+<div class="contact">
+<a href="tel:9621320717">📞 Contact: 9621320717</a>
 </div>
 
 </div>
