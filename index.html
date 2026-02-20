@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Elite Mentors</title>
+<title>Elite Mentors | Premium Physics</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
 
@@ -11,8 +11,8 @@
 
 :root{
 --gold:#d4af37;
---black:#000;
---dark:#111;
+--bg:#000;
+--card:#111;
 }
 
 *{
@@ -22,110 +22,82 @@ box-sizing:border-box;
 }
 
 body{
+background:radial-gradient(circle at top,#1a1a1a,#000);
 font-family:'Montserrat',sans-serif;
-background:linear-gradient(135deg,#000,#111,#000);
 color:white;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
-transition:1s;
+min-height:100vh;
+padding:20px;
 }
 
-/* Card */
-.card{
-width:90%;
-max-width:420px;
-background:#111;
-padding:40px 30px;
+.container{
+width:100%;
+max-width:500px;
+background:var(--card);
 border-radius:20px;
-border:1px solid var(--gold);
+padding:40px 30px;
+border:1px solid rgba(212,175,55,0.4);
 box-shadow:0 0 40px rgba(212,175,55,0.3);
-text-align:center;
-transition:1s;
+animation:fadeUp 1s ease;
 }
 
-/* Title */
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
 h1{
 font-family:'Cinzel',serif;
 color:var(--gold);
+text-align:center;
 letter-spacing:3px;
-margin-bottom:20px;
+margin-bottom:5px;
 }
 
-/* Form */
-.input-group{
-margin-bottom:20px;
-text-align:left;
+.subtitle{
+text-align:center;
+color:#ccc;
+font-size:14px;
+margin-bottom:25px;
 }
 
-label{
-font-size:12px;
+.chapter-title{
 color:var(--gold);
+font-size:13px;
 letter-spacing:2px;
-display:block;
-margin-bottom:8px;
+margin-bottom:15px;
 }
 
-input,select{
-width:100%;
-padding:12px;
-background:#000;
-border:1px solid #333;
-border-bottom:2px solid var(--gold);
-color:white;
-font-size:15px;
-outline:none;
-}
-
-/* Button */
-button{
-width:100%;
-padding:14px;
-background:linear-gradient(45deg,var(--gold),#aa8c2c);
-border:none;
-font-weight:bold;
-cursor:pointer;
-letter-spacing:2px;
+.chapter{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 15px;
+margin-bottom:12px;
+background:#0a0a0a;
+border:1px solid rgba(212,175,55,0.2);
+border-radius:10px;
 transition:0.3s;
 }
 
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px var(--gold);
+.chapter:hover{
+border-color:var(--gold);
+transform:translateX(5px);
 }
 
-/* Luxury Mode */
-.luxury{
-background:radial-gradient(circle at center,#1a1a1a,#000);
+/* Smooth Emoji Animations */
+.chapter span{
+font-size:20px;
+display:inline-block;
+animation:emojiMove 2.5s ease-in-out infinite;
 }
 
-.luxury .card{
-background:#000;
-box-shadow:0 0 60px rgba(212,175,55,0.6);
-transform:scale(1.05);
-}
-
-/* Floating Crown */
-.crown{
-font-size:50px;
-margin-bottom:20px;
-display:none;
-animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
+@keyframes emojiMove{
 0%{transform:translateY(0);}
-50%{transform:translateY(-12px);}
+50%{transform:translateY(-6px);}
 100%{transform:translateY(0);}
-}
-
-.success-text{
-display:none;
-color:var(--gold);
-font-family:'Cinzel',serif;
-margin-top:20px;
-font-size:18px;
 }
 
 </style>
@@ -133,47 +105,40 @@ font-size:18px;
 
 <body>
 
-<div class="card">
+<div class="container">
 
 <h1>Elite Mentors</h1>
+<p class="subtitle">Premium Physics Coaching</p>
+<p class="subtitle">Enter your details for VIP Access to our Physics coaching with animated chapters.</p>
 
-<form onsubmit="activateLuxury(event)">
+<div class="chapter-title">PHYSICS CHAPTERS PREVIEW</div>
 
-<div class="input-group">
-<label>FULL NAME</label>
-<input type="text" required>
+<div class="chapter">
+1. Electric Charges & Fields
+<span>⚡</span>
 </div>
 
-<div class="input-group">
-<label>SELECT CLASS</label>
-<select required>
-<option value="" disabled selected>Select Class</option>
-<option>Class 12th</option>
-<option>Class 11th</option>
-<option>Class 10th</option>
-<option>Class 9th</option>
-</select>
+<div class="chapter">
+2. Electrostatic Potential
+<span>🔋</span>
 </div>
 
-<button type="submit">Continue</button>
+<div class="chapter">
+3. Current Electricity
+<span>💡</span>
+</div>
 
-</form>
+<div class="chapter">
+4. Moving Charges & Magnetism
+<span>🧲</span>
+</div>
 
-<div class="crown" id="crown">👑</div>
-<div class="success-text" id="successText">
-WELCOME TO ROYAL VIP ACCESS
+<div class="chapter">
+5. Magnetism & Matter
+<span>🌍</span>
 </div>
 
 </div>
-
-<script>
-function activateLuxury(e){
-e.preventDefault();
-document.body.classList.add("luxury");
-document.getElementById("crown").style.display="block";
-document.getElementById("successText").style.display="block";
-}
-</script>
 
 </body>
 </html>
