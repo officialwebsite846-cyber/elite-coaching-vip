@@ -1,8 +1,9 @@
-ht<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Hardoi Physics by Sumit Sir - Best Physics Tuition for UP Board Class 12. 90%+ Results. Call now for admission.">
 <title>The Hardoi Physics | Sumit Sir</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -35,6 +36,7 @@ h2{
 font-family:'Cinzel',serif;
 color:var(--accent);
 margin-bottom:40px;
+font-size: 2rem;
 }
 
 nav{
@@ -48,17 +50,20 @@ padding:15px 20px;
 background:rgba(0,0,30,0.9);
 z-index:1000;
 backdrop-filter:blur(10px);
+border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .logo{
 color:var(--accent);
 font-weight:bold;
+font-size: 1.2rem;
 }
 
 nav a{
 color:#fff;
 text-decoration:none;
 margin-left:15px;
+font-size: 0.9rem;
 }
 
 nav a:hover{
@@ -71,9 +76,10 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
-url('https://source.unsplash.com/1600x900/?physics,classroom');
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1920&auto=format&fit=crop');
 background-size:cover;
+background-position: center;
 }
 
 .hero{
@@ -82,7 +88,7 @@ backdrop-filter:blur(20px);
 padding:40px 25px;
 border-radius:25px;
 max-width:500px;
-width:100%;
+width:90%;
 border:1px solid rgba(255,255,255,0.2);
 animation:fadeUp 1.5s ease forwards;
 opacity:0;
@@ -92,11 +98,13 @@ opacity:0;
 font-family:'Cinzel',serif;
 font-size:32px;
 color:var(--accent);
+line-height: 1.2;
 }
 
 .hero p{
 margin:20px 0;
 color:#ddd;
+font-size: 1.1rem;
 }
 
 .btn{
@@ -118,7 +126,6 @@ transform:scale(1.05);
 /* Limited Seats */
 .seats{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
 }
 
 .seats span{
@@ -140,7 +147,7 @@ background:rgba(255,255,255,0.08);
 backdrop-filter:blur(15px);
 padding:25px;
 border-radius:20px;
-width:250px;
+width:280px;
 border:1px solid rgba(77,166,255,0.3);
 transition:.4s;
 }
@@ -151,17 +158,27 @@ box-shadow:0 0 20px rgba(77,166,255,.4);
 }
 
 .card img{
-width:120px;
-height:120px;
+width:100px;
+height:100px;
 border-radius:50%;
 object-fit:cover;
-margin-bottom:10px;
+margin-bottom:15px;
+border: 3px solid var(--accent);
+}
+
+.card h3{
+margin-bottom: 5px;
+}
+
+.card p{
+color: #ccc;
+font-size: 0.9rem;
 }
 
 /* Gallery */
 .gallery img{
-width:250px;
-height:180px;
+width:280px;
+height:200px;
 object-fit:cover;
 border-radius:15px;
 transition:.4s;
@@ -178,6 +195,7 @@ padding:20px;
 background:#000814;
 text-align:center;
 color:#aaa;
+border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 /* WhatsApp */
@@ -195,6 +213,8 @@ justify-content:center;
 align-items:center;
 font-size:28px;
 text-decoration:none;
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+z-index: 1001;
 }
 
 /* Bottom Bar */
@@ -208,12 +228,14 @@ display:flex;
 justify-content:space-around;
 padding:12px 0;
 border-top:2px solid var(--accent);
+z-index: 1000;
 }
 
 .bottom-bar a{
 color:#fff;
 text-decoration:none;
 font-weight:bold;
+font-size: 0.8rem;
 }
 
 @media(min-width:769px){
@@ -227,12 +249,11 @@ to{opacity:1;transform:translateY(0);}
 }
 
 @media(max-width:768px){
-.hero h1{font-size:24px;}
-.gallery img{width:100%;}
+.hero h1{font-size:26px;}
+.gallery img{width:100%; height: auto;}
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -261,13 +282,14 @@ to{opacity:1;transform:translateY(0);}
 <h2>Top Results 2025</h2>
 <div class="flex">
 <div class="card">
-<img src="https://source.unsplash.com/200x200/?student">
+<!-- Using reliable placeholder images -->
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200" alt="Rahul Verma">
 <h3>Rahul Verma</h3>
 <p>Physics – 95%</p>
 <p>UP Board 2025</p>
 </div>
 <div class="card">
-<img src="https://source.unsplash.com/200x200/?girl,student">
+<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Anjali Singh">
 <h3>Anjali Singh</h3>
 <p>Physics – 93%</p>
 <p>UP Board 2025</p>
@@ -278,19 +300,19 @@ to{opacity:1;transform:translateY(0);}
 <section id="gallery">
 <h2>Class Gallery</h2>
 <div class="flex gallery">
-<img src="https://source.unsplash.com/300x200/?classroom">
-<img src="https://source.unsplash.com/300x200/?students">
-<img src="https://source.unsplash.com/300x200/?teaching">
-<img src="https://source.unsplash.com/300x200/?school">
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500" alt="Classroom Environment">
+<img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=500" alt="Students Studying">
+<img src="https://images.unsplash.com/photo-1544531696-b94d71226f9e?w=500" alt="Teaching Session">
+<img src="https://images.unsplash.com/photo-1427504746696-ea5abc71a3f2?w=500" alt="Physics Lab">
 </div>
 </section>
 
 <footer>
-© 2026 The Hardoi Physics | All Rights Reserved
+<p>&copy; 2025 The Hardoi Physics | All Rights Reserved</p>
 </footer>
 
 <a href="https://wa.me/919621320717?text=Hello%20Sir,%20I%20want%20admission%20details"
-class="whatsapp">💬</a>
+class="whatsapp" aria-label="Chat on WhatsApp">💬</a>
 
 <div class="bottom-bar">
 <a href="tel:9621320717">📞 Call</a>
