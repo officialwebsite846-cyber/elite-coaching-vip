@@ -3,533 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The Hardoi Physics by Sumit Sir - Best Physics Tuition for UP Board Class 12. 90%+ Results. Call now for admission.">
 <title>The Hardoi Physics | Sumit Sir</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-:root{
---accent:#4da6ff;
---accent-dark:#0066cc;
-}
+:root{--accent:#4da6ff;}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
-
 body{
 background:linear-gradient(135deg,#000814,#001d3d,#003566);
 color:#fff;
 overflow-x:hidden;
 }
 
-section{
-padding:80px 20px;
-text-align:center;
-}
-
-h2{
-font-family:'Cinzel',serif;
-color:var(--accent);
-margin-bottom:40px;
-font-size:2.5rem;
-position:relative;
-display:inline-block;
-}
-
-h2::after{
-content:'';
-position:absolute;
-bottom:-10px;
-left:50%;
-transform:translateX(-50%);
-width:60px;
-height:3px;
-background:var(--accent);
-border-radius:2px;
-}
+section{padding:80px 20px;text-align:center;}
+h2{font-family:'Cinzel',serif;color:var(--accent);margin-bottom:40px;}
 
 nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 20px;
-background:rgba(0,0,30,0.95);
-z-index:1000;
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.1);
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;background:rgba(0,0,30,0.9);
+z-index:1000;backdrop-filter:blur(10px);
 }
-
-.logo{
-color:var(--accent);
-font-weight:bold;
-font-size:1.3rem;
-font-family:'Cinzel',serif;
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-margin-left:20px;
-font-weight:500;
-transition:0.3s;
-}
-
-nav a:hover{
-color:var(--accent);
-}
+.logo{color:var(--accent);font-weight:bold;}
+nav a{color:#fff;text-decoration:none;margin-left:15px;}
+nav a:hover{color:var(--accent);}
 
 header{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+height:100vh;display:flex;justify-content:center;align-items:center;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
-url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1920&auto=format&fit=crop');
+background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
+url('https://source.unsplash.com/1600x900/?physics,classroom');
 background-size:cover;
-background-position:center;
-background-attachment:fixed;
 }
 
 .hero{
 background:rgba(255,255,255,0.08);
 backdrop-filter:blur(20px);
-padding:50px 35px;
-border-radius:25px;
-max-width:550px;
-width:90%;
+padding:40px 25px;border-radius:25px;
+max-width:500px;width:100%;
 border:1px solid rgba(255,255,255,0.2);
 animation:fadeUp 1.5s ease forwards;
 opacity:0;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
 }
 
 .hero h1{
 font-family:'Cinzel',serif;
-font-size:2.5rem;
-color:var(--accent);
-line-height:1.2;
-margin-bottom:15px;
+font-size:32px;color:var(--accent);
 }
 
-.hero p{
-margin:20px 0;
-color:#ddd;
-font-size:1.1rem;
-line-height:1.6;
-}
+.hero p{margin:20px 0;color:#ddd;}
 
 .btn{
-display:inline-block;
-padding:16px 35px;
-border-radius:50px;
-background:linear-gradient(45deg,var(--accent),var(--accent-dark));
-color:#fff;
-text-decoration:none;
-font-weight:600;
-box-shadow:0 5px 25px rgba(77,166,255,0.4);
-transition:0.3s;
-border:none;
-cursor:pointer;
-font-size:1rem;
+display:inline-block;padding:14px 25px;border-radius:50px;
+background:linear-gradient(45deg,var(--accent),#ffffff);
+color:#000;text-decoration:none;font-weight:600;
+box-shadow:0 5px 20px rgba(77,166,255,0.4);
+transition:.3s;
 }
+.btn:hover{transform:scale(1.05);}
 
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 10px 30px rgba(77,166,255,0.6);
-}
-
-/* Stats Section */
-.stats{
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1920');
-background-size:cover;
-background-attachment:fixed;
-padding:60px 20px;
-}
-
-.stats-grid{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:40px;
-max-width:1000px;
-margin:0 auto;
-}
-
-.stat-item{
-text-align:center;
-padding:20px;
-}
-
-.stat-number{
-font-size:3rem;
-font-weight:bold;
-color:var(--accent);
-font-family:'Cinzel',serif;
-display:block;
-}
-
-.stat-label{
-color:#ccc;
-font-size:1.1rem;
-margin-top:5px;
-}
-
-/* Limited Seats */
+/* Seats */
 .seats{
 background:rgba(255,255,255,0.05);
-border-top:1px solid rgba(255,255,255,0.1);
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.seats span{
-color:#ff4d4d;
-font-size:2.5rem;
-font-weight:bold;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.05);}
-}
-
-/* About Section */
-.about{
-background:rgba(255,255,255,0.02);
-}
-
-.about-content{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-align-items:center;
-gap:50px;
-max-width:1200px;
-margin:0 auto;
-}
-
-.about-text{
-flex:1;
-min-width:300px;
-max-width:600px;
-text-align:left;
-}
-
-.about-text h3{
-color:var(--accent);
-font-size:1.8rem;
-margin-bottom:20px;
-font-family:'Cinzel',serif;
-}
-
-.about-text p{
-color:#ccc;
-line-height:1.8;
-margin-bottom:15px;
-}
-
-.about-image{
-flex:1;
-min-width:300px;
-max-width:400px;
-}
-
-.about-image img{
-width:100%;
-border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,0.3);
-}
-
-/* Cards */
-.flex{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:30px;
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(15px);
-padding:30px;
-border-radius:20px;
-width:300px;
-border:1px solid rgba(77,166,255,0.3);
-transition:0.4s;
-position:relative;
-overflow:hidden;
-}
-
-.card::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:5px;
-background:linear-gradient(90deg,var(--accent),var(--accent-dark));
-transform:scaleX(0);
-transform-origin:left;
-transition:0.4s;
-}
-
-.card:hover::before{
-transform:scaleX(1);
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(77,166,255,.3);
-}
-
-.card img{
-width:100px;
-height:100px;
-border-radius:50%;
-object-fit:cover;
-margin-bottom:15px;
-border:3px solid var(--accent);
-}
-
-.card h3{
-margin-bottom:5px;
-color:#fff;
-}
-
-.card p{
-color:#ccc;
-font-size:0.9rem;
-}
-
-.card .percentage{
-font-size:2rem;
-font-weight:bold;
-color:var(--accent);
-display:block;
-margin:10px 0;
-}
-
-/* Batch Timings */
-.timings{
-background:rgba(255,255,255,0.03);
-}
-
-.timing-card{
-background:rgba(255,255,255,0.05);
-border-radius:15px;
-padding:25px;
-width:280px;
-border-left:4px solid var(--accent);
-text-align:left;
-transition:0.3s;
-}
-
-.timing-card:hover{
-background:rgba(255,255,255,0.1);
-transform:translateX(10px);
-}
-
-.timing-card h4{
-color:var(--accent);
-font-size:1.2rem;
-margin-bottom:10px;
-}
-
-.timing-card p{
-color:#ccc;
-margin:5px 0;
-}
-
-.timing-card i{
-margin-right:10px;
-color:var(--accent);
-}
-
-/* Gallery */
-.gallery img{
-width:280px;
-height:200px;
-object-fit:cover;
-border-radius:15px;
-transition:0.4s;
-cursor:pointer;
-}
-
-.gallery img:hover{
-transform:scale(1.05) rotate(2deg);
-box-shadow:0 20px 40px rgba(77,166,255,.4);
-}
-
-/* Testimonials */
-.testimonials{
-background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.9)),
-url('https://images.unsplash.com/photo-1544531696-b94d71226f9e?q=80&w=1920');
-background-size:cover;
-background-attachment:fixed;
-}
-
-.testimonial-card{
-background:rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
-padding:30px;
-border-radius:20px;
-width:350px;
-max-width:90%;
-border:1px solid rgba(255,255,255,0.2);
 }
+.seats span{color:#ff4d4d;font-size:32px;font-weight:bold;}
 
-.testimonial-card .quote{
-font-size:3rem;
-color:var(--accent);
-line-height:1;
-}
-
-.testimonial-card p{
-font-style:italic;
-color:#ddd;
-margin:15px 0;
-line-height:1.6;
-}
-
-.testimonial-card .author{
-display:flex;
-align-items:center;
-gap:15px;
-margin-top:20px;
-}
-
-.testimonial-card .author img{
-width:50px;
-height:50px;
-border-radius:50%;
-object-fit:cover;
-}
-
-.testimonial-card .author-info h5{
-color:#fff;
-margin-bottom:3px;
-}
-
-.testimonial-card .author-info span{
-color:var(--accent);
-font-size:0.85rem;
-}
-
-/* FAQ Section */
-.faq{
-max-width:800px;
-margin:0 auto;
-}
-
-.faq-item{
-background:rgba(255,255,255,0.05);
-border-radius:10px;
-margin-bottom:15px;
-overflow:hidden;
-border:1px solid rgba(255,255,255,0.1);
-}
-
-.faq-question{
-padding:20px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-weight:600;
-transition:0.3s;
-}
-
-.faq-question:hover{
-background:rgba(255,255,255,0.1);
-}
-
-.faq-question i{
-transition:0.3s;
-}
-
-.faq-item.active .faq-question i{
-transform:rotate(180deg);
-}
-
-.faq-answer{
-max-height:0;
-overflow:hidden;
-transition:0.3s ease;
-background:rgba(0,0,0,0.2);
-}
-
-.faq-item.active .faq-answer{
-max-height:200px;
-padding:20px;
-}
-
-.faq-answer p{
-color:#ccc;
-line-height:1.6;
-}
-
-/* Registration Form */
-.registration{
-background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(0,0,0,0.7)),
-url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1920');
-background-size:cover;
-}
-
-.reg-form{
+/* Slider */
+.slider{
+max-width:400px;margin:auto;
 background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-padding:40px;
-border-radius:25px;
-max-width:500px;
-width:90%;
-margin:0 auto;
-border:1px solid rgba(255,255,255,0.2);
+padding:30px;border-radius:20px;
+backdrop-filter:blur(15px);
+}
+.slide{display:none;}
+.slide.active{display:block;}
+
+/* Footer */
+footer{
+padding:20px;background:#000814;
+text-align:center;color:#aaa;
 }
 
-.form-group{
-margin-bottom:20px;
-text-align:left;
+/* WhatsApp */
+.whatsapp{
+position:fixed;bottom:80px;right:20px;
+background:#25D366;color:#fff;
+width:60px;height:60px;border-radius:50%;
+display:flex;justify-content:center;align-items:center;
+font-size:28px;text-decoration:none;
 }
 
-.form-group label{
-display:block;
-margin-bottom:8px;
-color:#ccc;
-font-weight:500;
+/* Bottom Bar */
+.bottom-bar{
+position:fixed;bottom:0;left:0;width:100%;
+background:#001d3d;display:flex;
+justify-content:space-around;
+padding:12px 0;border-top:2px solid var(--accent);
 }
+.bottom-bar a{color:#fff;text-decoration:none;font-weight:bold;}
+@media(min-width:769px){.bottom-bar{display:none;}}
 
-.form-group input,
-.form-group select,
-.form-group textarea{
-width:100%;
-padding:15px;
-border-radius:10px;
-border:1px solid rgba(255,255,255,0.2);
-background:rgba(255,255,255,0.1);
-color:#fff;
-font-size:1rem;
-transition:0.3s;
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-outline:none;
-border-color:var(--accent);
-background:rgba(255,255,255,0.15);
+@media(max-width:768px){
+.hero h1{font-size:24px;}
 }
+</style>
+</head>
 
-.form-group select option{
-background:#001
+<body>
+
+<nav>
+<div class="logo">The Hardoi Physics</div>
+<div>
+<a href="#results">Results</a>
+<a href="#question">Question</a>
+<a href="tel:9621320717">Contact</a>
+</div>
+</nav>
+
+<header>
+<div class="hero">
+<h1>The Hardoi Physics<br>Sumit Sir</h1>
+<p>UP Board Class 12 Specialist | 90%+ Results</p>
+<a href="tel:9621320717" class="btn">Call Now - 9621320717</a>
+</div>
+</header>
+
+<section class="seats">
+<h2>Limited Seats Available</h2>
+<p>Only <span id="seatCount">25</span> Seats Left</p>
+</section>
+
+<section id="results">
+<h2>Top Results 2025</h2>
+<div class="slider">
+<div class="slide active">
+<h3>Rahul Verma</h3>
+<p>Physics – 95%</p>
+<p>UP Board 2025</p>
+</div>
+<div class="slide">
+<h3>Anjali Singh</h3>
+<p>Physics – 93%</p>
+<p>UP Board 2025</p>
+</div>
+<div class="slide">
+<h3>Arjun Mishra</h3>
+<p>Physics – 91%</p>
+<p>UP Board 2025</p>
+</div>
+</div>
+</section>
+
+<section id="question">
+<h2>Question of the Day</h2>
+<p>If velocity is doubled, what happens to kinetic energy?</p>
+<button class="btn" onclick="showAnswer()">Show Answer</button>
+<p id="answer" style="margin-top:15px;display:none;">
+Kinetic energy becomes 4 times.
+</p>
+</section>
+
+<footer>
+© 2026 The Hardoi Physics | All Rights Reserved
+</footer>
+
+<a href="https://wa.me/919621320717?text=Hello%20Sir,%20I%20want%20admission%20details"
+class="whatsapp">💬</a>
+
+<div class="bottom-bar">
+<a href="tel:9621320717">📞 Call</a>
+<a href="https://wa.me/919621320717">💬 WhatsApp</a>
+</div>
+
+<script>
+let seat=25;
+setInterval(()=>{
+if(seat>10){
+seat--;
+document.getElementById("seatCount").innerText=seat;
+}
+},8000);
+
+let slides=document.querySelectorAll(".slide");
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove("active");
+index=(index+1)%slides.length;
+slides[index].classList.add("active");
+},3000);
+
+function showAnswer(){
+document.getElementById("answer").style.display="block";
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+particlesJS("body",{
+particles:{
+number:{value:40},
+size:{value:3},
+move:{speed:1},
+line_linked:{enable:true}
+}
+});
+</script>
+
+</body>
+</html>
