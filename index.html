@@ -7,109 +7,221 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{--accent:#4da6ff;}
+:root{
+--accent:#5dade2;
+--dark1:#000814;
+--dark2:#001d3d;
+--dark3:#003566;
+}
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
 html{scroll-behavior:smooth;}
+
 body{
-background:linear-gradient(135deg,#000814,#001d3d,#003566);
+background:linear-gradient(135deg,var(--dark1),var(--dark2),var(--dark3));
 color:#fff;
 overflow-x:hidden;
 }
 
-section{padding:80px 20px;text-align:center;}
-h2{font-family:'Cinzel',serif;color:var(--accent);margin-bottom:40px;}
-
-nav{
-position:fixed;top:0;width:100%;
-display:flex;justify-content:space-between;align-items:center;
-padding:15px 20px;background:rgba(0,0,30,0.9);
-z-index:1000;backdrop-filter:blur(10px);
-}
-.logo{color:var(--accent);font-weight:bold;}
-nav a{color:#fff;text-decoration:none;margin-left:15px;}
-nav a:hover{color:var(--accent);}
-
-header{
-height:100vh;display:flex;justify-content:center;align-items:center;
+/* Sections */
+section{
+padding:90px 20px;
 text-align:center;
-background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.9)),
-url('https://source.unsplash.com/1600x900/?physics,classroom');
+}
+
+h2{
+font-family:'Cinzel',serif;
+color:var(--accent);
+margin-bottom:45px;
+font-size:30px;
+letter-spacing:1px;
+}
+
+/* Navbar */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 25px;
+background:rgba(0,0,30,0.85);
+backdrop-filter:blur(12px);
+z-index:1000;
+border-bottom:1px solid rgba(93,173,226,0.3);
+}
+
+.logo{
+color:var(--accent);
+font-weight:bold;
+font-size:18px;
+letter-spacing:1px;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--accent);
+}
+
+/* Hero */
+header{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.95)),
+url('https://source.unsplash.com/1600x900/?physics,education');
 background-size:cover;
+background-position:center;
 }
 
 .hero{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-padding:40px 25px;border-radius:25px;
-max-width:500px;width:100%;
-border:1px solid rgba(255,255,255,0.2);
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(25px);
+padding:50px 35px;
+border-radius:30px;
+max-width:520px;
+width:100%;
+border:1px solid rgba(255,255,255,0.15);
+box-shadow:0 0 40px rgba(93,173,226,0.15);
 animation:fadeUp 1.5s ease forwards;
 opacity:0;
 }
 
 .hero h1{
 font-family:'Cinzel',serif;
-font-size:32px;color:var(--accent);
+font-size:34px;
+color:var(--accent);
+margin-bottom:15px;
 }
 
-.hero p{margin:20px 0;color:#ddd;}
+.hero p{
+margin:20px 0;
+color:#ddd;
+font-size:15px;
+}
 
 .btn{
-display:inline-block;padding:14px 25px;border-radius:50px;
+display:inline-block;
+padding:15px 30px;
+border-radius:50px;
 background:linear-gradient(45deg,var(--accent),#ffffff);
-color:#000;text-decoration:none;font-weight:600;
-box-shadow:0 5px 20px rgba(77,166,255,0.4);
+color:#000;
+text-decoration:none;
+font-weight:600;
+box-shadow:0 8px 25px rgba(93,173,226,0.4);
 transition:.3s;
 }
-.btn:hover{transform:scale(1.05);}
 
-/* Seats */
+.btn:hover{
+transform:scale(1.07);
+}
+
+/* Limited Seats */
 .seats{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
+border-top:1px solid rgba(93,173,226,0.2);
+border-bottom:1px solid rgba(93,173,226,0.2);
 }
-.seats span{color:#ff4d4d;font-size:32px;font-weight:bold;}
 
-/* Slider */
-.slider{
-max-width:400px;margin:auto;
-background:rgba(255,255,255,0.08);
-padding:30px;border-radius:20px;
-backdrop-filter:blur(15px);
+.seats span{
+color:#ff4d4d;
+font-size:36px;
+font-weight:bold;
 }
-.slide{display:none;}
-.slide.active{display:block;}
+
+/* Results Slider */
+.slider{
+max-width:420px;
+margin:auto;
+background:rgba(255,255,255,0.07);
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(93,173,226,0.3);
+box-shadow:0 0 25px rgba(93,173,226,0.15);
+}
+
+.slide{
+display:none;
+}
+
+.slide.active{
+display:block;
+}
 
 /* Footer */
 footer{
-padding:20px;background:#000814;
-text-align:center;color:#aaa;
+padding:25px;
+background:#000814;
+text-align:center;
+color:#aaa;
+border-top:1px solid rgba(93,173,226,0.2);
 }
 
 /* WhatsApp */
 .whatsapp{
-position:fixed;bottom:80px;right:20px;
-background:#25D366;color:#fff;
-width:60px;height:60px;border-radius:50%;
-display:flex;justify-content:center;align-items:center;
-font-size:28px;text-decoration:none;
+position:fixed;
+bottom:80px;
+right:20px;
+background:#25D366;
+color:#fff;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 0 20px rgba(37,211,102,.5);
 }
 
 /* Bottom Bar */
 .bottom-bar{
-position:fixed;bottom:0;left:0;width:100%;
-background:#001d3d;display:flex;
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#001d3d;
+display:flex;
 justify-content:space-around;
-padding:12px 0;border-top:2px solid var(--accent);
+padding:12px 0;
+border-top:2px solid var(--accent);
 }
-.bottom-bar a{color:#fff;text-decoration:none;font-weight:bold;}
-@media(min-width:769px){.bottom-bar{display:none;}}
+
+.bottom-bar a{
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+}
+
+@media(min-width:769px){
+.bottom-bar{display:none;}
+}
 
 @keyframes fadeUp{
 from{opacity:0;transform:translateY(40px);}
 to{opacity:1;transform:translateY(0);}
 }
+
 @media(max-width:768px){
 .hero h1{font-size:24px;}
 }
@@ -122,7 +234,6 @@ to{opacity:1;transform:translateY(0);}
 <div class="logo">The Hardoi Physics</div>
 <div>
 <a href="#results">Results</a>
-<a href="#question">Question</a>
 <a href="tel:9621320717">Contact</a>
 </div>
 </nav>
@@ -161,15 +272,6 @@ to{opacity:1;transform:translateY(0);}
 </div>
 </section>
 
-<section id="question">
-<h2>Question of the Day</h2>
-<p>If velocity is doubled, what happens to kinetic energy?</p>
-<button class="btn" onclick="showAnswer()">Show Answer</button>
-<p id="answer" style="margin-top:15px;display:none;">
-Kinetic energy becomes 4 times.
-</p>
-</section>
-
 <footer>
 © 2026 The Hardoi Physics | All Rights Reserved
 </footer>
@@ -198,22 +300,6 @@ slides[index].classList.remove("active");
 index=(index+1)%slides.length;
 slides[index].classList.add("active");
 },3000);
-
-function showAnswer(){
-document.getElementById("answer").style.display="block";
-}
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script>
-particlesJS("body",{
-particles:{
-number:{value:40},
-size:{value:3},
-move:{speed:1},
-line_linked:{enable:true}
-}
-});
 </script>
 
 </body>
