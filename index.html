@@ -10,7 +10,6 @@
 <style>
 :root{
   --gold:#d4af37;
-  --dark:#0a0a0a;
 }
 
 *{
@@ -40,12 +39,33 @@ body::before{
   z-index:-1;
 }
 
+/* PREMIUM LOADER */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+.loader-text{
+  font-family:'Cinzel',serif;
+  font-size:40px;
+  background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+  background-size:200% 200%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shine 3s linear infinite;
+}
+
 /* HEADER */
 header{
   position:relative;
   height:100vh;
   display:flex;
-  flex-direction:column;
   justify-content:center;
   align-items:center;
   text-align:center;
@@ -55,17 +75,30 @@ header{
   background-size:cover;
   background-position:center;
   padding:20px;
+  overflow:hidden;
 }
 
-/* Glass Card */
+/* Sparkle Canvas */
+#sparkleCanvas{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+
+/* Glass Hero Box */
 .hero-box{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
   border:1px solid rgba(255,255,255,0.1);
   padding:50px 40px;
   border-radius:25px;
-  box-shadow:0 0 40px rgba(212,175,55,0.15);
-  animation:fadeUp 1.2s ease;
+  box-shadow:0 0 40px rgba(212,175,55,0.2);
+  z-index:2;
+  animation:heroEntry 1.5s ease forwards;
+  opacity:0;
 }
 
 /* Heading */
@@ -84,11 +117,9 @@ header{
   animation:float 3s ease-in-out infinite;
 }
 
-/* Subtitle */
 header p{
   margin:20px 0 30px;
   font-size:18px;
-  letter-spacing:1px;
   color:#ddd;
 }
 
@@ -124,7 +155,6 @@ header p{
   display:flex;
   justify-content:center;
   align-items:center;
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
   text-decoration:none;
   z-index:1000;
   animation:pulse 2s infinite;
@@ -145,9 +175,15 @@ header p{
   50%{transform:translateY(-10px);}
 }
 
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(50px);}
-  to{opacity:1;transform:translateY(0);}
+@keyframes heroEntry{
+  from{
+    opacity:0;
+    transform:scale(0.8) translateY(50px);
+  }
+  to{
+    opacity:1;
+    transform:scale(1) translateY(0);
+  }
 }
 
 @keyframes pulse{
@@ -166,7 +202,14 @@ header p{
 
 <body>
 
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-text">The Hardoi Physics</div>
+</div>
+
 <header>
+  <canvas id="sparkleCanvas"></canvas>
+
   <div class="hero-box">
     <h1 class="luxury-text">
       The Hardoi Physics – <br><span>Sumit Sir</span>
@@ -180,6 +223,69 @@ header p{
 <a href="https://wa.me/919621320717" target="_blank" class="whatsapp-float">
   💬
 </a>
+
+<script>
+/* LOADER */
+window.addEventListener("load", function(){
+  setTimeout(function(){
+    document.getElementById("loader").style.opacity="0";
+    document.getElementById("loader").style.transition="1s";
+    setTimeout(()=>{
+      document.getElementById("loader").style.display="none";
+    },1000);
+  },1500);
+});
+
+/* SPARKLE EFFECT */
+const canvas=document.getElementById('sparkleCanvas');
+const ctx=canvas.getContext('2d');
+let particles=[];
+const particleCount=80;
+
+function resizeCanvas(){
+  canvas.width=window.innerWidth;
+  canvas.height=window.innerHeight;
+}
+window.addEventListener('resize',resizeCanvas);
+resizeCanvas();
+
+function initParticles(){
+  particles=[];
+  for(let i=0;i<particleCount;i++){
+    particles.push({
+      x:Math.random()*canvas.width,
+      y:Math.random()*canvas.height,
+      r:Math.random()*2+1,
+      dx:(Math.random()-0.5)*0.5,
+      dy:(Math.random()-0.5)*0.5,
+      alpha:Math.random()
+    });
+  }
+}
+
+function drawParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let p of particles){
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(212,175,55,${p.alpha})`;
+    ctx.fill();
+    p.x+=p.dx;
+    p.y+=p.dy;
+    p.alpha+=(Math.random()-0.5)*0.02;
+    if(p.alpha<0)p.alpha=0;
+    if(p.alpha>1)p.alpha=1;
+    if(p.x<0)p.x=canvas.width;
+    if(p.x>canvas.width)p.x=0;
+    if(p.y<0)p.y=canvas.height;
+    if(p.y>canvas.height)p.y=0;
+  }
+  requestAnimationFrame(drawParticles);
+}
+
+initParticles();
+drawParticles();
+</script>
 
 </body>
 </html>
