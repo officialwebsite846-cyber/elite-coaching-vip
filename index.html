@@ -7,7 +7,6 @@
 <title>The Hardoi Physics | Sumit Sir</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.min.css">
 
 <style>
 :root{
@@ -761,6 +760,21 @@ transition:0.3s;
 background:var(--accent-dark);
 transform:translateY(-5px);
 }
+
+/* Success Message */
+.success-message{
+display:none;
+background:rgba(37,211,102,0.2);
+border:1px solid #25D366;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.success-message h4{
+color:#25D366;
+margin-bottom:10px;
+}
 </style>
 </head>
 <body>
@@ -768,227 +782,4 @@ transform:translateY(-5px);
 <nav>
 <div class="logo">The Hardoi Physics</div>
 <div>
-<a href="#results">Results</a>
-<a href="#about">About</a>
-<a href="#batches">Batches</a>
-<a href="#gallery">Gallery</a>
-<a href="#contact">Contact</a>
-</div>
-</nav>
-
-<header>
-<div class="hero">
-<h1>The Hardoi Physics<br>Sumit Sir</h1>
-<p>UP Board Class 12 Specialist | 90%+ Results | 500+ Successful Students</p>
-<a href="tel:9621320717" class="btn">Call Now - 9621320717</a>
-<a href="#registration" class="btn btn-outline" style="margin-top:15px;">Apply Online</a>
-</div>
-</header>
-
-<!-- Stats Section -->
-<section class="stats">
-<div class="stats-grid">
-<div class="stat-item">
-<span class="stat-number" data-target="500">0</span>
-<span class="stat-label">Students Selected</span>
-</div>
-<div class="stat-item">
-<span class="stat-number" data-target="100">0</span>
-<span class="stat-label">% Results</span>
-</div>
-<div class="stat-item">
-<span class="stat-number" data-target="10">0</span>
-<span class="stat-label">Years Experience</span>
-</div>
-<div class="stat-item">
-<span class="stat-number" data-target="25">0</span>
-<span class="stat-label">Seats Left</span>
-</div>
-</div>
-</section>
-
-<section class="seats">
-<h2>⚡ Limited Seats Available - Admission Closing Soon!</h2>
-<p>Only <span id="seatCount">25</span> Seats Left For New Batch</p>
-<a href="#registration" class="btn" style="margin-top:20px;">Book Your Seat Now</a>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about">
-<h2>About Sumit Sir</h2>
-<div class="about-content">
-<div class="about-text">
-<h3>Expert Physics Teacher in Hardoi</h3>
-<p>With over 10 years of experience in teaching Physics for UP Board Class 12, I have helped hundreds of students achieve their academic goals. My teaching methodology focuses on conceptual clarity and practical application.</p>
-<p>🎯 <strong>Specialization:</strong> UP Board Class 12 Physics, Conceptual Learning, Problem Solving</p>
-<p>🏆 <strong>Achievement:</strong> 90%+ Result Consistently for 5 Years</p>
-<p>📚 <strong>Teaching Style:</strong> Hindi & English Medium, Interactive Sessions</p>
-</div>
-<div class="about-image">
-<img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=400" alt="Sumit Sir - Physics Teacher">
-</div>
-</div>
-</section>
-
-<!-- Batch Timings -->
-<section id="batches" class="timings">
-<h2>Batch Timings</h2>
-<div class="flex">
-<div class="timing-card">
-<h4><i class="fas fa-clock"></i> Morning Batch</h4>
-<p>⏰ 6:00 AM - 8:00 AM</p>
-<p>📅 Monday to Saturday</p>
-<p>👥 Limited to 20 Students</p>
-</div>
-<div class="timing-card">
-<h4><i class="fas fa-clock"></i> Evening Batch</h4>
-<p>⏰ 4:00 PM - 6:00 PM</p>
-<p>📅 Monday to Saturday</p>
-<p>👥 Limited to 20 Students</p>
-</div>
-<div class="timing-card">
-<h4><i class="fas fa-clock"></i> Weekend Batch</h4>
-<p>⏰ 10:00 AM - 2:00 PM</p>
-<p>📅 Sunday (Doubt Session)</p>
-<p>👥 Open for All</p>
-</div>
-</div>
-</section>
-
-<section id="results">
-<h2>Top Results 2025</h2>
-<div class="flex">
-<div class="card">
-<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200" alt="Rahul Verma">
-<h3>Rahul Verma</h3>
-<span class="percentage">95%</span>
-<p>Physics – 95%</p>
-<p>UP Board 2025</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200" alt="Anjali Singh">
-<h3>Anjali Singh</h3>
-<span class="percentage">93%</span>
-<p>Physics – 93%</p>
-<p>UP Board 2025</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200" alt="Amit Kumar">
-<h3>Amit Kumar</h3>
-<span class="percentage">91%</span>
-<p>Physics – 91%</p>
-<p>UP Board 2025</p>
-</div>
-<div class="card">
-<img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200" alt="Priya Sharma">
-<h3>Priya Sharma</h3>
-<span class="percentage">90%</span>
-<p>Physics – 90%</p>
-<p>UP Board 2025</p>
-</div>
-</div>
-</section>
-
-<!-- Testimonials -->
-<section class="testimonials">
-<h2>What Parents Say</h2>
-<div class="flex">
-<div class="testimonial-card">
-<div class="quote">"</div>
-<p>My son scored 95% in Physics just because of Sumit Sir's excellent teaching. Very grateful for his guidance and support throughout the year.</p>
-<div class="author">
-<img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100" alt="Parent">
-<div class="author-info">
-<h5>Rajesh Verma</h5>
-<span>Parent of Rahul Verma</span>
-</div>
-</div>
-</div>
-<div class="testimonial-card">
-<div class="quote">"</div>
-<p>Best physics tuition in Hardoi! My daughter was weak in physics but improved a lot under Sumit Sir's guidance. Highly recommended!</p>
-<div class="author">
-<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100" alt="Parent">
-<div class="author-info">
-<h5>Sangeeta Singh</h5>
-<span>Parent of Anjali Singh</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- FAQ Section -->
-<section class="faq">
-<h2>Frequently Asked Questions</h2>
-<div class="faq-item">
-<div class="faq-question">
-<span>📚 What subjects are taught at The Hardoi Physics?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-<p>We specialize in UP Board Class 12 Physics. We focus on building strong concepts and problem-solving techniques to help students score 90%+ marks.</p>
-</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>📍 Where is the tuition center located?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-<p>Our tuition center is located in Hardoi, Uttar Pradesh. For exact location and directions, please call us at 9621320717.</p>
-</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>💰 What are the fees for Class 12 Physics?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-<p>Our fees are very affordable and competitive. Please call us at 9621320717 for complete fee structure and admission details.</p>
-</div>
-</div>
-<div class="faq-item">
-<div class="faq-question">
-<span>📱 Do you provide online classes?</span>
-<i class="fas fa-chevron-down"></i>
-</div>
-<div class="faq-answer">
-<p>Currently, we offer offline classes at our center in Hardoi. However, we provide study materials and doubt resolution through WhatsApp groups.</p>
-</div>
-</div>
-</section>
-
-<!-- Gallery -->
-<section id="gallery">
-<h2>Class Gallery</h2>
-<div class="flex gallery">
-<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=500" alt="Classroom Environment">
-<img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=500" alt="Students Studying">
-<img src="https://images.unsplash.com/photo-1544531696-b94d71226f9e?w=500" alt="Teaching Session">
-<img src="https://images.unsplash.com/photo-1427504746696-ea5abc71a3f2?w=500" alt="Physics Lab">
-</div>
-</section>
-
-<!-- Registration Form -->
-<section id="registration" class="registration">
-<h2>Apply For Admission</h2>
-<form class="reg-form" onsubmit="submitForm(event)">
-<div class="form-group">
-<label>Student Name *</label>
-<input type="text" placeholder="Enter student name" required>
-</div>
-<div class="form-group">
-<label>Parent's Name *</label>
-<input type="text" placeholder="Enter parent's name" required>
-</div>
-<div class="form-group">
-<label>Phone Number *</label>
-<input type="tel" placeholder="Enter phone number" required>
-</div>
-<div class="form-group">
-<label>Class *</label>
-<select required>
-<option value="">Select Class</option>
-<option value="12">Class 12</option>
-<option value="11">Class
+<a href="#results">Results
