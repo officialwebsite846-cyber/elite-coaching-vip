@@ -9,267 +9,206 @@
 
 <style>
 :root{--gold:#d4af37;}
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 html{scroll-behavior:smooth;}
-body{
-  background:linear-gradient(135deg,#000,#111);
-  color:#fff;
-  overflow-x:hidden;
-}
+body{background:#000;color:#fff;overflow-x:hidden;}
 
-/* GOLD GLOW */
-body::before{
-  content:"";
-  position:fixed;
-  width:700px;height:700px;
-  background:radial-gradient(circle,var(--gold),transparent 70%);
-  top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  opacity:0.05;
-  z-index:-1;
-}
+section{padding:80px 20px;text-align:center;}
+h2{font-family:'Cinzel',serif;color:var(--gold);margin-bottom:40px;}
 
-/* LOADER */
-#loader{
-  position:fixed;width:100%;height:100%;
-  background:#000;
-  display:flex;justify-content:center;align-items:center;
-  z-index:9999;
-}
-.loader-text{
-  font-family:'Cinzel',serif;
-  font-size:32px;
-  background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
-  background-size:200% 200%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 3s linear infinite;
-}
-
-/* NAVBAR */
 nav{
-  position:fixed;top:0;width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 20px;
-  background:rgba(0,0,0,0.8);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;top:0;width:100%;
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 20px;background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);z-index:1000;
 }
-.logo{font-weight:700;font-size:18px;color:var(--gold);}
-nav a{
-  color:#fff;text-decoration:none;
-  margin-left:15px;font-weight:500;
-  transition:0.3s;
-}
+.logo{color:var(--gold);font-weight:bold;}
+nav a{color:#fff;text-decoration:none;margin-left:15px;}
 nav a:hover{color:var(--gold);}
 
-/* HEADER */
 header{
-  height:100vh;
-  display:flex;justify-content:center;align-items:center;
-  text-align:center;
-  background:
-  linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
-  url('https://i.ibb.co/5vY9N1t/teacher.jpg');
-  background-size:cover;
-  padding:20px;
+height:100vh;
+display:flex;justify-content:center;align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.95)),
+url('https://i.ibb.co/5vY9N1t/teacher.jpg');
+background-size:cover;
 }
 
-.hero-box{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  padding:40px 25px;
-  border-radius:25px;
-  border:1px solid rgba(255,255,255,0.1);
-  box-shadow:0 0 40px rgba(212,175,55,0.2);
-  animation:fadeUp 1.5s ease forwards;
-  opacity:0;
-  max-width:500px;
-  width:100%;
+.hero{
+background:rgba(255,255,255,0.05);
+padding:40px 25px;
+border-radius:25px;
+max-width:500px;width:100%;
+animation:fadeUp 1.5s ease forwards;
+opacity:0;
 }
 
-.luxury-text{
-  font-family:'Cinzel',serif;
-  font-size:38px;
-  line-height:1.3;
-  background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
-  background-size:200% 200%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation:shine 4s linear infinite;
+.hero h1{
+font-family:'Cinzel',serif;
+font-size:32px;
+background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 4s linear infinite;
 }
 
-.highlight{color:var(--gold);}
-header p{margin:20px 0;font-size:15px;color:#ddd;}
+.hero p{margin:20px 0;color:#ddd;}
 
 .btn{
-  display:inline-block;
-  padding:14px 25px;
-  border-radius:50px;
-  background:linear-gradient(45deg,var(--gold),#fff);
-  color:#000;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-  box-shadow:0 5px 20px rgba(212,175,55,0.4);
+display:inline-block;
+padding:14px 25px;
+border-radius:50px;
+background:linear-gradient(45deg,var(--gold),#fff);
+color:#000;text-decoration:none;
+font-weight:600;
+box-shadow:0 5px 20px rgba(212,175,55,0.4);
+transition:.3s;
 }
 .btn:hover{transform:scale(1.05);}
 
-/* SECTION */
-section{padding:80px 20px;text-align:center;}
-section h2{
-  font-family:'Cinzel',serif;
-  color:var(--gold);
-  margin-bottom:40px;
+.result-box,.gallery{
+display:flex;flex-wrap:wrap;
+justify-content:center;gap:20px;
 }
 
-/* RESULTS */
-.result-box{
-  display:flex;flex-wrap:wrap;
-  justify-content:center;gap:20px;
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;border-radius:20px;
+width:250px;
+border:1px solid rgba(212,175,55,0.3);
+transition:.4s;
 }
-.student{
-  background:rgba(255,255,255,0.05);
-  padding:25px;border-radius:20px;
-  width:250px;
-  border:1px solid rgba(212,175,55,0.3);
-  transition:0.3s;
-}
-.student:hover{transform:translateY(-8px);}
+.card:hover{transform:translateY(-10px);}
 
-/* TESTIMONIAL */
-.testimonial{
-  max-width:600px;margin:auto;
-  background:rgba(255,255,255,0.05);
-  padding:30px;border-radius:20px;
-  font-style:italic;
+.gallery img{
+width:250px;height:180px;
+object-fit:cover;
+border-radius:15px;
+transition:.4s;
+}
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px rgba(212,175,55,.5);
 }
 
-/* FORM */
-form{
-  display:flex;flex-direction:column;
-  max-width:400px;margin:auto;gap:15px;
-}
-input{
-  padding:12px;border-radius:10px;border:none;
-}
-button{
-  padding:12px;border:none;border-radius:30px;
-  background:linear-gradient(45deg,#d4af37,#fff);
-  font-weight:bold;cursor:pointer;
+.counter{
+font-size:40px;
+color:var(--gold);
+font-weight:bold;
 }
 
-/* MAP */
-iframe{width:100%;height:300px;border:none;border-radius:20px;}
-
-/* FOOTER */
 footer{
-  padding:20px;text-align:center;
-  background:#000;font-size:14px;color:#aaa;
+padding:20px;background:#000;
+text-align:center;color:#aaa;
 }
 
-/* WHATSAPP */
 .whatsapp{
-  position:fixed;bottom:20px;right:20px;
-  background:#25D366;color:#fff;
-  width:60px;height:60px;
-  border-radius:50%;
-  display:flex;justify-content:center;align-items:center;
-  font-size:28px;text-decoration:none;
-  box-shadow:0 5px 20px rgba(0,0,0,0.5);
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:#fff;
+width:60px;height:60px;border-radius:50%;
+display:flex;justify-content:center;align-items:center;
+font-size:28px;text-decoration:none;
 }
 
-/* ANIMATION */
 @keyframes shine{
-  0%{background-position:200% 0;}
-  100%{background-position:-200% 0;}
+0%{background-position:200% 0;}
+100%{background-position:-200% 0;}
 }
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
+from{opacity:0;transform:translateY(40px);}
+to{opacity:1;transform:translateY(0);}
 }
 
-/* MOBILE */
 @media(max-width:768px){
-  .luxury-text{font-size:28px;}
-  nav{padding:10px 15px;}
-  nav a{margin-left:10px;font-size:14px;}
+.hero h1{font-size:24px;}
+.gallery img{width:100%;}
 }
 </style>
 </head>
 
 <body>
 
-<div id="loader"><div class="loader-text">The Hardoi Physics</div></div>
-
 <nav>
-  <div class="logo">The Hardoi Physics</div>
-  <div>
-    <a href="#about">About</a>
-    <a href="#results">Results</a>
-    <a href="#admission">Admission</a>
-    <a href="#contact">Contact</a>
-  </div>
+<div class="logo">The Hardoi Physics</div>
+<div>
+<a href="#about">About</a>
+<a href="#results">Results</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</div>
 </nav>
 
 <header>
-  <div class="hero-box">
-    <h1 class="luxury-text">
-      The Hardoi Physics <br>
-      <span class="highlight">Sumit Sir</span>
-    </h1>
-    <p>UP Board Class 12 Specialist | 90%+ Board Results</p>
-    <a href="tel:9621320717" class="btn">Call Now - 9621320717</a>
-  </div>
+<div class="hero">
+<h1>The Hardoi Physics<br>Sumit Sir</h1>
+<p>UP Board Class 12 Specialist | 90%+ Results</p>
+<a href="tel:9621320717" class="btn">Call Now - 9621320717</a>
+</div>
 </header>
 
 <section id="about">
-  <h2>About Sumit Sir</h2>
-  <p>10+ Years Experience | Concept-Based Teaching | Board Exam Specialist</p>
+<h2>About Sumit Sir</h2>
+<p>10+ Years Experience | Concept-Based Teaching | Board Specialist</p>
 </section>
 
 <section id="results">
-  <h2>Top Results</h2>
-  <div class="result-box">
-    <div class="student"><h3>Rahul</h3><p>Physics – 95%</p></div>
-    <div class="student"><h3>Anjali</h3><p>Physics – 93%</p></div>
-    <div class="student"><h3>Vivek</h3><p>Physics – 91%</p></div>
-  </div>
+<h2>Our Achievements</h2>
+<div class="result-box">
+<div class="card">
+<div class="counter" data-target="95">0</div>
+<p>Highest Marks</p>
+</div>
+<div class="card">
+<div class="counter" data-target="300">0</div>
+<p>Students Taught</p>
+</div>
+<div class="card">
+<div class="counter" data-target="90">0</div>
+<p>90%+ Results</p>
+</div>
+</div>
 </section>
 
-<section>
-  <h2>Student Review</h2>
-  <div class="testimonial">
-    <p>"Best Physics teacher in Hardoi! Concepts become crystal clear."</p>
-  </div>
-</section>
-
-<section id="admission">
-  <h2>Admission Open 2026</h2>
-  <form>
-    <input type="text" placeholder="Student Name" required>
-    <input type="tel" placeholder="Mobile Number" required>
-    <button type="submit">Apply Now</button>
-  </form>
+<section id="gallery">
+<h2>Class Gallery</h2>
+<div class="gallery">
+<img src="https://source.unsplash.com/300x200/?classroom">
+<img src="https://source.unsplash.com/300x200/?students">
+<img src="https://source.unsplash.com/300x200/?teaching">
+<img src="https://source.unsplash.com/300x200/?school">
+</div>
 </section>
 
 <section id="contact">
-  <h2>Our Location</h2>
-  <iframe src="https://maps.google.com/maps?q=Hardoi&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+<h2>Our Location</h2>
+<iframe src="https://maps.google.com/maps?q=Hardoi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+width="100%" height="300" style="border:none;border-radius:20px;"></iframe>
 </section>
 
 <footer>
-  © 2026 The Hardoi Physics | All Rights Reserved
+© 2026 The Hardoi Physics | All Rights Reserved
 </footer>
 
-<a href="https://wa.me/919621320717?text=Hello%20Sir,%20I%20want%20admission%20details" class="whatsapp">💬</a>
+<a href="https://wa.me/919621320717?text=Hello%20Sir,%20I%20want%20admission%20details"
+class="whatsapp">💬</a>
 
 <script>
-window.addEventListener("load", function(){
-  setTimeout(function(){
-    document.getElementById("loader").style.display="none";
-  },1000);
+const counters=document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+counter.innerText='0';
+const update=()=>{
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+const inc=target/100;
+if(c<target){
+counter.innerText=Math.ceil(c+inc);
+setTimeout(update,20);
+}else{
+counter.innerText=target;
+}
+};
+update();
 });
 </script>
 
