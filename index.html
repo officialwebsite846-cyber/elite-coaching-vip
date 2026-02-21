@@ -8,16 +8,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --gold:#d4af37;
-}
+:root{--gold:#d4af37;}
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
+html{scroll-behavior:smooth;}
 
 body{
   background:linear-gradient(135deg,#000,#111);
@@ -25,32 +20,27 @@ body{
   overflow-x:hidden;
 }
 
-/* Background Glow */
+/* GOLD GLOW */
 body::before{
   content:"";
   position:fixed;
   width:700px;
   height:700px;
   background:radial-gradient(circle,var(--gold),transparent 70%);
-  top:50%;
-  left:50%;
+  top:50%;left:50%;
   transform:translate(-50%,-50%);
   opacity:0.05;
   z-index:-1;
 }
 
-/* PREMIUM LOADER */
+/* LOADER */
 #loader{
   position:fixed;
-  width:100%;
-  height:100%;
+  width:100%;height:100%;
   background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display:flex;justify-content:center;align-items:center;
   z-index:9999;
 }
-
 .loader-text{
   font-family:'Cinzel',serif;
   font-size:40px;
@@ -61,9 +51,27 @@ body::before{
   animation:shine 3s linear infinite;
 }
 
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 40px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:600;
+}
+nav a:hover{color:var(--gold);}
+
 /* HEADER */
 header{
-  position:relative;
   height:100vh;
   display:flex;
   justify-content:center;
@@ -73,38 +81,23 @@ header{
   linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.95)),
   url('https://i.ibb.co/5vY9N1t/teacher.jpg');
   background-size:cover;
-  background-position:center;
   padding:20px;
-  overflow:hidden;
 }
 
-/* Sparkle Canvas */
-#sparkleCanvas{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  pointer-events:none;
-}
-
-/* Glass Hero Box */
 .hero-box{
   background:rgba(255,255,255,0.05);
   backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.1);
   padding:50px 40px;
   border-radius:25px;
+  border:1px solid rgba(255,255,255,0.1);
   box-shadow:0 0 40px rgba(212,175,55,0.2);
-  z-index:2;
-  animation:heroEntry 1.5s ease forwards;
+  animation:fadeUp 1.5s ease forwards;
   opacity:0;
 }
 
-/* Heading */
 .luxury-text{
   font-family:'Cinzel',serif;
-  font-size:50px;
+  font-size:48px;
   background:linear-gradient(90deg,#d4af37,#fff,#d4af37);
   background-size:200% 200%;
   -webkit-background-clip:text;
@@ -112,179 +105,152 @@ header{
   animation:shine 4s linear infinite;
 }
 
-.luxury-text span{
-  display:inline-block;
-  animation:float 3s ease-in-out infinite;
-}
+header p{margin:20px 0;}
 
-header p{
-  margin:20px 0 30px;
-  font-size:18px;
-  color:#ddd;
-}
-
-/* Button */
 .btn{
-  display:inline-block;
   padding:14px 40px;
   border-radius:50px;
   background:linear-gradient(45deg,var(--gold),#fff);
-  font-weight:700;
   color:#000;
   text-decoration:none;
-  transition:0.4s;
-  box-shadow:0 0 20px rgba(212,175,55,0.5);
+  font-weight:bold;
 }
 
-.btn:hover{
-  transform:scale(1.1);
-  box-shadow:0 0 35px var(--gold);
+/* SECTION */
+section{padding:80px 20px;text-align:center;}
+section h2{
+  font-family:'Cinzel',serif;
+  color:var(--gold);
+  margin-bottom:40px;
 }
 
-/* WhatsApp Floating */
-.whatsapp-float{
-  position:fixed;
-  bottom:25px;
-  right:25px;
-  background:#25D366;
-  color:#fff;
-  font-size:28px;
-  width:60px;
-  height:60px;
+/* RESULTS */
+.result-box{
+  display:flex;flex-wrap:wrap;
+  justify-content:center;gap:30px;
+}
+.student{
+  background:rgba(255,255,255,0.05);
+  padding:30px;border-radius:20px;
+  width:250px;
+  border:1px solid rgba(212,175,55,0.3);
+}
+
+/* TESTIMONIAL */
+.testimonial{
+  max-width:600px;margin:auto;
+  background:rgba(255,255,255,0.05);
+  padding:40px;border-radius:20px;
+}
+
+/* FORM */
+form{
+  display:flex;flex-direction:column;
+  max-width:400px;margin:auto;gap:20px;
+}
+input,textarea{
+  padding:12px;border-radius:10px;border:none;
+}
+button{
+  padding:12px;border:none;border-radius:30px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  font-weight:bold;
+}
+
+/* MAP */
+iframe{width:100%;height:300px;border:none;border-radius:20px;}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;bottom:20px;right:20px;
+  background:#25D366;color:#fff;
+  width:60px;height:60px;
   border-radius:50%;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-decoration:none;
-  z-index:1000;
-  animation:pulse 2s infinite;
+  display:flex;justify-content:center;align-items:center;
+  font-size:28px;text-decoration:none;
 }
 
-.whatsapp-float:hover{
-  transform:scale(1.1);
-}
-
-/* Animations */
+/* ANIMATIONS */
 @keyframes shine{
   0%{background-position:200% 0;}
   100%{background-position:-200% 0;}
 }
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-10px);}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(50px);}
+  to{opacity:1;transform:translateY(0);}
 }
 
-@keyframes heroEntry{
-  from{
-    opacity:0;
-    transform:scale(0.8) translateY(50px);
-  }
-  to{
-    opacity:1;
-    transform:scale(1) translateY(0);
-  }
-}
-
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6);}
-  70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
-  100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
-}
-
-/* Responsive */
 @media(max-width:768px){
-  .luxury-text{font-size:34px;}
-  .hero-box{padding:35px 20px;}
+  .luxury-text{font-size:32px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-text">The Hardoi Physics</div>
-</div>
+<div id="loader"><div class="loader-text">The Hardoi Physics</div></div>
+
+<nav>
+  <div><b>The Hardoi Physics</b></div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#results">Results</a>
+    <a href="#admission">Admission</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
 <header>
-  <canvas id="sparkleCanvas"></canvas>
-
   <div class="hero-box">
-    <h1 class="luxury-text">
-      The Hardoi Physics – <br><span>Sumit Sir</span>
-    </h1>
+    <h1 class="luxury-text">The Hardoi Physics<br>Sumit Sir</h1>
     <p>UP Board Class 12 Specialist | 90%+ Results</p>
-    <a href="tel:9621320717" class="btn">📞 Call Now - 9621320717</a>
+    <a href="tel:9621320717" class="btn">Call Now - 9621320717</a>
   </div>
 </header>
 
-<!-- WhatsApp Button -->
-<a href="https://wa.me/919621320717" target="_blank" class="whatsapp-float">
-  💬
-</a>
+<section id="about">
+  <h2>About Sumit Sir</h2>
+  <p>10+ Years Experience | Concept Based Teaching | Board Exam Specialist</p>
+</section>
+
+<section id="results">
+  <h2>Top Results</h2>
+  <div class="result-box">
+    <div class="student"><h3>Rahul</h3><p>95%</p></div>
+    <div class="student"><h3>Anjali</h3><p>93%</p></div>
+    <div class="student"><h3>Vivek</h3><p>91%</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Student Review</h2>
+  <div class="testimonial">
+    <p>"Best Physics Teacher in Hardoi! Concepts crystal clear."</p>
+  </div>
+</section>
+
+<section id="admission">
+  <h2>Admission Open 2026</h2>
+  <form>
+    <input type="text" placeholder="Student Name" required>
+    <input type="tel" placeholder="Mobile Number" required>
+    <button type="submit">Apply Now</button>
+  </form>
+</section>
+
+<section id="contact">
+  <h2>Our Location</h2>
+  <iframe src="https://maps.google.com/maps?q=Hardoi&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<a href="https://wa.me/919621320717" class="whatsapp">💬</a>
 
 <script>
-/* LOADER */
 window.addEventListener("load", function(){
   setTimeout(function(){
-    document.getElementById("loader").style.opacity="0";
-    document.getElementById("loader").style.transition="1s";
-    setTimeout(()=>{
-      document.getElementById("loader").style.display="none";
-    },1000);
+    document.getElementById("loader").style.display="none";
   },1500);
 });
-
-/* SPARKLE EFFECT */
-const canvas=document.getElementById('sparkleCanvas');
-const ctx=canvas.getContext('2d');
-let particles=[];
-const particleCount=80;
-
-function resizeCanvas(){
-  canvas.width=window.innerWidth;
-  canvas.height=window.innerHeight;
-}
-window.addEventListener('resize',resizeCanvas);
-resizeCanvas();
-
-function initParticles(){
-  particles=[];
-  for(let i=0;i<particleCount;i++){
-    particles.push({
-      x:Math.random()*canvas.width,
-      y:Math.random()*canvas.height,
-      r:Math.random()*2+1,
-      dx:(Math.random()-0.5)*0.5,
-      dy:(Math.random()-0.5)*0.5,
-      alpha:Math.random()
-    });
-  }
-}
-
-function drawParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(let p of particles){
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fillStyle=`rgba(212,175,55,${p.alpha})`;
-    ctx.fill();
-    p.x+=p.dx;
-    p.y+=p.dy;
-    p.alpha+=(Math.random()-0.5)*0.02;
-    if(p.alpha<0)p.alpha=0;
-    if(p.alpha>1)p.alpha=1;
-    if(p.x<0)p.x=canvas.width;
-    if(p.x>canvas.width)p.x=0;
-    if(p.y<0)p.y=canvas.height;
-    if(p.y>canvas.height)p.y=0;
-  }
-  requestAnimationFrame(drawParticles);
-}
-
-initParticles();
-drawParticles();
 </script>
 
 </body>
